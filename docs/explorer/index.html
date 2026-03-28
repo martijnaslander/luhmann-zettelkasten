@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luhmann's Brain — Network Map of the Zettelkasten</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #0a0a0f; color: #e0e0e0; overflow: hidden; height: 100vh; }
+
+#dashboard {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 10;
+    background: linear-gradient(180deg, rgba(10,10,15,0.95) 0%, rgba(10,10,15,0.8) 100%);
+    padding: 12px 20px; display: flex; align-items: center; gap: 20px;
+    border-bottom: 1px solid #222;
+}
+#dashboard h1 { font-size: 18px; font-weight: 600; color: #fff; white-space: nowrap; }
+#dashboard .stat { text-align: center; padding: 0 12px; border-left: 1px solid #333; }
+#dashboard .stat .num { font-size: 20px; font-weight: 700; color: #6cf; }
+#dashboard .stat .label { font-size: 10px; text-transform: uppercase; color: #888; letter-spacing: 1px; }
+
+#search-box {
+    flex: 1; max-width: 300px; margin-left: auto;
+    display: flex; align-items: center; gap: 8px;
+}
+#search-box input {
+    width: 100%; padding: 6px 12px; border-radius: 4px;
+    border: 1px solid #333; background: #151520; color: #fff; font-size: 13px;
+}
+#search-box input:focus { outline: none; border-color: #6cf; }
+#search-results {
+    position: fixed; top: 52px; right: 20px; z-index: 20;
+    background: #151520; border: 1px solid #333; border-radius: 4px;
+    max-height: 400px; overflow-y: auto; width: 350px; display: none;
+}
+#search-results .result {
+    padding: 8px 12px; cursor: pointer; border-bottom: 1px solid #222; font-size: 12px;
+}
+#search-results .result:hover { background: #1a1a2e; }
+#search-results .result .num { color: #6cf; font-weight: 600; }
+
+#graph-container { width: 100vw; height: 100vh; }
+canvas { display: block; }
+
+#card-panel {
+    position: fixed; top: 52px; right: 0; width: 380px; height: calc(100vh - 52px);
+    background: #111118; border-left: 1px solid #222; z-index: 15;
+    overflow-y: auto; padding: 16px; display: none; font-size: 13px;
+}
+#card-panel.open { display: block; }
+#card-panel .close-btn {
+    position: absolute; top: 8px; right: 12px; cursor: pointer;
+    color: #888; font-size: 20px; background: none; border: none;
+}
+#card-panel .close-btn:hover { color: #fff; }
+#card-panel h2 { font-size: 16px; color: #6cf; margin-bottom: 4px; padding-right: 30px; }
+#card-panel .meta { color: #888; font-size: 11px; margin-bottom: 12px; }
+#card-panel .text { line-height: 1.6; white-space: pre-wrap; margin-bottom: 16px; color: #ccc; max-height: 300px; overflow-y: auto; }
+#card-panel .refs-section h3 { font-size: 12px; color: #888; text-transform: uppercase; letter-spacing: 1px; margin: 12px 0 6px; }
+#card-panel .ref-link { display: inline-block; padding: 2px 8px; margin: 2px; background: #1a1a2e; border-radius: 3px; cursor: pointer; color: #6cf; font-size: 11px; }
+#card-panel .ref-link:hover { background: #252540; }
+#card-panel .ref-link.incoming { color: #f96; }
+#card-panel .archive-link { display: inline-block; margin-top: 12px; padding: 6px 12px; background: #1a2a1a; color: #6f6; border-radius: 4px; text-decoration: none; font-size: 11px; }
+#card-panel .archive-link:hover { background: #2a3a2a; }
+
+#legend {
+    position: fixed; bottom: 16px; left: 16px; z-index: 10;
+    background: rgba(15,15,22,0.9); padding: 12px; border-radius: 6px; border: 1px solid #222;
+    font-size: 11px;
+}
+#legend .item { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+#legend .dot { width: 10px; height: 10px; border-radius: 50%; }
+
+#info {
+    position: fixed; bottom: 16px; right: 16px; z-index: 10;
+    background: rgba(15,15,22,0.9); padding: 12px; border-radius: 6px; border: 1px solid #222;
+    font-size: 10px; color: #666; max-width: 280px; text-align: right;
+}
+#info a { color: #6cf; }
+
+#loading {
+    position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    z-index: 100; text-align: center; color: #6cf; font-size: 16px;
+}
+</style>
+</head>
+<body>
+
+<div id="dashboard">
+    <h1>Luhmann's Brain</h1>
+    <div class="stat"><div class="num" id="stat-cards">—</div><div class="label">Cards</div></div>
+    <div class="stat"><div class="num" id="stat-refs">—</div><div class="label">Cross-refs</div></div>
+    <div class="stat"><div class="num" id="stat-communities">—</div><div class="label">Clusters</div></div>
+    <div class="stat"><div class="num" id="stat-years">45</div><div class="label">Years</div></div>
+    <div id="search-box">
+        <input type="text" id="search-input" placeholder="Search Luhmann's thinking..." />
+    </div>
+</div>
+
+<div id="search-results"></div>
+<div id="graph-container"><canvas id="canvas"></canvas></div>
+
+<div id="card-panel">
+    <button class="close-btn" onclick="closePanel()">&times;</button>
+    <h2 id="panel-title"></h2>
+    <div class="meta" id="panel-meta"></div>
+    <div class="text" id="panel-text"></div>
+    <div class="refs-section">
+        <h3 id="panel-out-label">References from this card</h3>
+        <div id="panel-out-refs"></div>
+        <h3 id="panel-in-label">Referenced by</h3>
+        <div id="panel-in-refs"></div>
+    </div>
+    <a class="archive-link" id="panel-archive-link" href="#" target="_blank">View original scan</a>
+</div>
+
+<div id="legend">
+    <div style="font-weight:600; margin-bottom:6px;">Sections</div>
+    <div class="item"><div class="dot" style="background:#ff6b6b"></div> 57 Wissenschaft</div>
+    <div class="item"><div class="dot" style="background:#4ecdc4"></div> 28 Organisation</div>
+    <div class="item"><div class="dot" style="background:#45b7d1"></div> 21 Organisationstheorie (ZK II)</div>
+    <div class="item"><div class="dot" style="background:#f9ca24"></div> 7 Einzelbegriffe (ZK II)</div>
+    <div class="item"><div class="dot" style="background:#a29bfe"></div> 62 Rolle</div>
+    <div class="item"><div class="dot" style="background:#fd79a8"></div> 83 Leistungssteigerung</div>
+    <div class="item"><div class="dot" style="background:#6c5ce7"></div> 60 Entscheidungen</div>
+    <div class="item"><div class="dot" style="background:#55a3a4"></div> Other</div>
+    <div style="margin-top:8px; color:#666;">Node size = references received</div>
+    <div style="color:#666;">Scroll to zoom, drag to pan</div>
+</div>
+
+<div id="info">
+    First complete network map of Luhmann's Zettelkasten.<br>
+    73,715 cards. 45 years of thinking. Built in one day.<br>
+    <a href="https://niklas-luhmann-archiv.de" target="_blank">Data: CC-BY-NC-SA 4.0</a><br>
+    By Martijn Aslander + Claude
+</div>
+
+<div id="loading">Loading Luhmann's brain...</div>
+
+<script>
+const SECTION_COLORS = {
+    '57': '#ff6b6b', '28': '#4ecdc4', '21': '#45b7d1', '7': '#f9ca24',
+    '62': '#a29bfe', '83': '#fd79a8', '60': '#6c5ce7', '32': '#e17055',
+    '76': '#00b894', '17': '#fdcb6e', '12': '#e056fd', '45': '#22a6b3',
+    '52': '#f8a5c2', '54': '#778beb', '532': '#cf6a87', '533': '#786fa6',
+};
+const DEFAULT_COLOR = '#55a3a4';
+
+let nodes = [], edges = [], nodeMap = {};
+let allCards = []; // for search
+let camera = { x: 0, y: 0, zoom: 1 };
+let canvas, ctx;
+let hoveredNode = null, selectedNode = null;
+let isDragging = false, dragStart = { x: 0, y: 0 }, cameraStart = { x: 0, y: 0 };
+
+async function init() {
+    canvas = document.getElementById('canvas');
+    ctx = canvas.getContext('2d');
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Load data
+    const [nodesData, edgesData, statsData, cardsData] = await Promise.all([
+        fetch('data/vis_nodes.json').then(r => r.json()),
+        fetch('data/vis_edges.json').then(r => r.json()),
+        fetch('data/network_stats.json').then(r => r.json()),
+        fetch('data/search_index.json').then(r => r.json()).catch(() => [])
+    ]);
+
+    allCards = cardsData;
+
+    // Update dashboard
+    document.getElementById('stat-cards').textContent = '73,715';
+    document.getElementById('stat-refs').textContent = statsData.summary.total_edges_non_folge.toLocaleString();
+    document.getElementById('stat-communities').textContent = statsData.summary.communities.toLocaleString();
+
+    // Layout nodes using force-directed simulation
+    nodes = nodesData.map((n, i) => ({
+        ...n,
+        x: (Math.random() - 0.5) * 2000,
+        y: (Math.random() - 0.5) * 2000,
+        vx: 0, vy: 0,
+        radius: Math.max(3, Math.min(20, 3 + Math.sqrt(n.in_degree) * 2)),
+        color: SECTION_COLORS[n.section] || DEFAULT_COLOR,
+    }));
+
+    nodeMap = {};
+    nodes.forEach(n => nodeMap[n.id] = n);
+
+    edges = edgesData.filter(e => nodeMap[e.source] && nodeMap[e.target]);
+
+    document.getElementById('loading').style.display = 'none';
+
+    // Run force simulation
+    simulate(150);
+
+    // Event listeners
+    canvas.addEventListener('mousedown', onMouseDown);
+    canvas.addEventListener('mousemove', onMouseMove);
+    canvas.addEventListener('mouseup', onMouseUp);
+    canvas.addEventListener('wheel', onWheel);
+    canvas.addEventListener('dblclick', onDblClick);
+    document.getElementById('search-input').addEventListener('input', onSearch);
+
+    draw();
+}
+
+function simulate(iterations) {
+    const k = 30; // optimal distance
+    for (let iter = 0; iter < iterations; iter++) {
+        const alpha = 1 - iter / iterations;
+
+        // Repulsion
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                let dx = nodes[j].x - nodes[i].x;
+                let dy = nodes[j].y - nodes[i].y;
+                let dist = Math.sqrt(dx * dx + dy * dy) || 1;
+                let force = (k * k) / dist * alpha * 0.1;
+                let fx = (dx / dist) * force;
+                let fy = (dy / dist) * force;
+                nodes[i].vx -= fx;
+                nodes[i].vy -= fy;
+                nodes[j].vx += fx;
+                nodes[j].vy += fy;
+            }
+        }
+
+        // Attraction (edges)
+        for (const e of edges) {
+            const s = nodeMap[e.source], t = nodeMap[e.target];
+            if (!s || !t) continue;
+            let dx = t.x - s.x;
+            let dy = t.y - s.y;
+            let dist = Math.sqrt(dx * dx + dy * dy) || 1;
+            let force = (dist - k) * alpha * 0.01;
+            let fx = (dx / dist) * force;
+            let fy = (dy / dist) * force;
+            s.vx += fx; s.vy += fy;
+            t.vx -= fx; t.vy -= fy;
+        }
+
+        // Section clustering — pull same-section nodes together
+        const sectionCenters = {};
+        for (const n of nodes) {
+            const key = `${n.zk}-${n.section}`;
+            if (!sectionCenters[key]) sectionCenters[key] = { x: 0, y: 0, count: 0 };
+            sectionCenters[key].x += n.x;
+            sectionCenters[key].y += n.y;
+            sectionCenters[key].count++;
+        }
+        for (const key in sectionCenters) {
+            sectionCenters[key].x /= sectionCenters[key].count;
+            sectionCenters[key].y /= sectionCenters[key].count;
+        }
+        for (const n of nodes) {
+            const key = `${n.zk}-${n.section}`;
+            const center = sectionCenters[key];
+            if (center && center.count > 1) {
+                n.vx += (center.x - n.x) * 0.003 * alpha;
+                n.vy += (center.y - n.y) * 0.003 * alpha;
+            }
+        }
+
+        // Apply velocity with damping
+        for (const n of nodes) {
+            n.x += n.vx * 0.5;
+            n.y += n.vy * 0.5;
+            n.vx *= 0.8;
+            n.vy *= 0.8;
+        }
+    }
+}
+
+function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    draw();
+}
+
+function screenToWorld(sx, sy) {
+    return {
+        x: (sx - canvas.width / 2) / camera.zoom - camera.x,
+        y: (sy - canvas.height / 2) / camera.zoom - camera.y
+    };
+}
+
+function worldToScreen(wx, wy) {
+    return {
+        x: (wx + camera.x) * camera.zoom + canvas.width / 2,
+        y: (wy + camera.y) * camera.zoom + canvas.height / 2
+    };
+}
+
+function draw() {
+    if (!ctx) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.save();
+    ctx.translate(canvas.width / 2, canvas.height / 2);
+    ctx.scale(camera.zoom, camera.zoom);
+    ctx.translate(camera.x, camera.y);
+
+    // Edges
+    ctx.globalAlpha = 0.15;
+    ctx.strokeStyle = '#446';
+    ctx.lineWidth = 0.5 / camera.zoom;
+    for (const e of edges) {
+        const s = nodeMap[e.source], t = nodeMap[e.target];
+        if (!s || !t) continue;
+        // Highlight edges connected to selected node
+        if (selectedNode && (e.source === selectedNode.id || e.target === selectedNode.id)) {
+            ctx.globalAlpha = 0.6;
+            ctx.strokeStyle = e.type === 'cross_zk' ? '#f96' : '#6cf';
+            ctx.lineWidth = 1.5 / camera.zoom;
+        }
+        ctx.beginPath();
+        ctx.moveTo(s.x, s.y);
+        ctx.lineTo(t.x, t.y);
+        ctx.stroke();
+        if (selectedNode && (e.source === selectedNode.id || e.target === selectedNode.id)) {
+            ctx.globalAlpha = 0.15;
+            ctx.strokeStyle = '#446';
+            ctx.lineWidth = 0.5 / camera.zoom;
+        }
+    }
+
+    // Nodes
+    ctx.globalAlpha = 1;
+    for (const n of nodes) {
+        const isSelected = selectedNode && selectedNode.id === n.id;
+        const isConnected = selectedNode && edges.some(e =>
+            (e.source === selectedNode.id && e.target === n.id) ||
+            (e.target === selectedNode.id && e.source === n.id)
+        );
+
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+
+        if (isSelected) {
+            ctx.fillStyle = '#fff';
+            ctx.shadowColor = n.color;
+            ctx.shadowBlur = 20;
+        } else if (isConnected) {
+            ctx.fillStyle = n.color;
+            ctx.globalAlpha = 1;
+        } else if (selectedNode) {
+            ctx.fillStyle = n.color;
+            ctx.globalAlpha = 0.15;
+        } else {
+            ctx.fillStyle = n.color;
+            ctx.globalAlpha = 0.8;
+        }
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.globalAlpha = 1;
+
+        // Label for large/hovered nodes
+        if ((n.radius > 8 && camera.zoom > 0.5) || n === hoveredNode || isSelected) {
+            ctx.fillStyle = isSelected ? '#fff' : '#aaa';
+            ctx.font = `${Math.max(8, 10 / camera.zoom)}px sans-serif`;
+            ctx.textAlign = 'center';
+            ctx.fillText(n.luhmann_number || '', n.x, n.y - n.radius - 4);
+        }
+    }
+
+    ctx.restore();
+    requestAnimationFrame(draw);
+}
+
+function findNodeAt(sx, sy) {
+    const w = screenToWorld(sx, sy);
+    let closest = null, closestDist = Infinity;
+    for (const n of nodes) {
+        const dx = n.x - w.x, dy = n.y - w.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        const hitRadius = n.radius / camera.zoom + 5;
+        if (dist < hitRadius && dist < closestDist) {
+            closest = n;
+            closestDist = dist;
+        }
+    }
+    return closest;
+}
+
+function onMouseDown(e) {
+    const node = findNodeAt(e.clientX, e.clientY);
+    if (node) {
+        selectNode(node);
+    } else {
+        isDragging = true;
+        dragStart = { x: e.clientX, y: e.clientY };
+        cameraStart = { x: camera.x, y: camera.y };
+    }
+}
+
+function onMouseMove(e) {
+    if (isDragging) {
+        camera.x = cameraStart.x + (e.clientX - dragStart.x) / camera.zoom;
+        camera.y = cameraStart.y + (e.clientY - dragStart.y) / camera.zoom;
+    } else {
+        const node = findNodeAt(e.clientX, e.clientY);
+        hoveredNode = node;
+        canvas.style.cursor = node ? 'pointer' : 'grab';
+    }
+}
+
+function onMouseUp() { isDragging = false; }
+
+function onWheel(e) {
+    e.preventDefault();
+    const factor = e.deltaY > 0 ? 0.9 : 1.1;
+    camera.zoom = Math.max(0.05, Math.min(10, camera.zoom * factor));
+}
+
+function onDblClick(e) {
+    const node = findNodeAt(e.clientX, e.clientY);
+    if (node) {
+        camera.x = -node.x;
+        camera.y = -node.y;
+        camera.zoom = 2;
+    }
+}
+
+function selectNode(node) {
+    selectedNode = node;
+    showPanel(node);
+}
+
+function showPanel(node) {
+    const panel = document.getElementById('card-panel');
+    panel.classList.add('open');
+
+    document.getElementById('panel-title').textContent = node.luhmann_number || node.title || node.id;
+    document.getElementById('panel-meta').innerHTML =
+        `ZK ${node.zk} | Section ${node.section} | ${node.type || 'Notizzettel'}<br>` +
+        `In: ${node.in_degree} references | Out: ${node.out_degree} references`;
+
+    // Find card text from search index
+    const card = allCards.find(c => c.ekin === node.id);
+    document.getElementById('panel-text').textContent = card ? card.text : '(Text not loaded in search index)';
+
+    // Outgoing refs
+    const outRefs = edges.filter(e => e.source === node.id).map(e => nodeMap[e.target]).filter(Boolean);
+    const outDiv = document.getElementById('panel-out-refs');
+    outDiv.innerHTML = outRefs.map(n =>
+        `<span class="ref-link" onclick="jumpToNode('${n.id}')">${n.luhmann_number || n.id}</span>`
+    ).join('') || '<span style="color:#666">None in visible network</span>';
+    document.getElementById('panel-out-label').textContent = `References from this card (${outRefs.length})`;
+
+    // Incoming refs
+    const inRefs = edges.filter(e => e.target === node.id).map(e => nodeMap[e.source]).filter(Boolean);
+    const inDiv = document.getElementById('panel-in-refs');
+    inDiv.innerHTML = inRefs.map(n =>
+        `<span class="ref-link incoming" onclick="jumpToNode('${n.id}')">${n.luhmann_number || n.id}</span>`
+    ).join('') || '<span style="color:#666">None in visible network</span>';
+    document.getElementById('panel-in-label').textContent = `Referenced by (${inRefs.length})`;
+
+    // Archive link
+    const archiveLink = document.getElementById('panel-archive-link');
+    archiveLink.href = `https://niklas-luhmann-archiv.de/bestand/zettelkasten/zettel/${node.id}`;
+}
+
+function jumpToNode(id) {
+    const node = nodeMap[id];
+    if (node) {
+        selectedNode = node;
+        camera.x = -node.x;
+        camera.y = -node.y;
+        camera.zoom = Math.max(camera.zoom, 1.5);
+        showPanel(node);
+    }
+}
+
+function closePanel() {
+    document.getElementById('card-panel').classList.remove('open');
+    selectedNode = null;
+}
+
+function onSearch(e) {
+    const query = e.target.value.toLowerCase().trim();
+    const resultsDiv = document.getElementById('search-results');
+
+    if (query.length < 2) {
+        resultsDiv.style.display = 'none';
+        return;
+    }
+
+    // Search in nodes first (visible in graph)
+    let results = nodes.filter(n =>
+        (n.luhmann_number && n.luhmann_number.toLowerCase().includes(query)) ||
+        (n.title && n.title.toLowerCase().includes(query))
+    ).slice(0, 20);
+
+    // Also search in full card index
+    if (allCards.length > 0) {
+        const cardResults = allCards.filter(c =>
+            (c.text && c.text.toLowerCase().includes(query)) ||
+            (c.luhmann_number && c.luhmann_number.toLowerCase().includes(query))
+        ).slice(0, 20);
+
+        // Merge, preferring graph nodes
+        const graphIds = new Set(results.map(r => r.id));
+        for (const c of cardResults) {
+            if (!graphIds.has(c.ekin)) {
+                results.push({
+                    id: c.ekin,
+                    luhmann_number: c.luhmann_number,
+                    title: c.title || '',
+                    _isCard: true,
+                    _preview: c.text ? c.text.substring(0, 100) : ''
+                });
+            }
+        }
+    }
+
+    if (results.length === 0) {
+        resultsDiv.style.display = 'none';
+        return;
+    }
+
+    resultsDiv.style.display = 'block';
+    resultsDiv.innerHTML = results.slice(0, 15).map(r => {
+        const inGraph = nodeMap[r.id] ? '' : ' (not in top 2000)';
+        const preview = r._preview || '';
+        return `<div class="result" onclick="onSearchSelect('${r.id}')">
+            <span class="num">${r.luhmann_number || '?'}</span> ${r.title || ''}${inGraph}
+            ${preview ? '<br><span style="color:#666;font-size:11px">' + preview + '</span>' : ''}
+        </div>`;
+    }).join('');
+}
+
+function onSearchSelect(id) {
+    document.getElementById('search-results').style.display = 'none';
+    document.getElementById('search-input').value = '';
+    const node = nodeMap[id];
+    if (node) {
+        jumpToNode(id);
+    }
+}
+
+init();
+</script>
+</body>
+</html>

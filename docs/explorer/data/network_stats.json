@@ -1,0 +1,1214 @@
+{
+  "summary": {
+    "total_nodes": 20386,
+    "total_edges_non_folge": 27021,
+    "communities": 4773,
+    "cross_zk_refs": 1976
+  },
+  "top_50_most_referenced": [
+    {
+      "ekin": "ZK_1_NB_57-4e7b1e75_V",
+      "in_degree": 36,
+      "out_degree": 0,
+      "luhmann_number": "57-4e7b1e75",
+      "title": "ZK I Zettel 57,4e7b1e75",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4e7b1e75\nIdentifikation / Funktionalisierung\n1; 3\nDie Frage ist, ob man nicht nur Kausalvorgänge, sondern  \n    auch sinnkonstituierende Bewusstseinsleistungen,  \n    Identifikationen funktional da"
+    },
+    {
+      "ekin": "ZK_1_NB_76-13f_V",
+      "in_degree": 28,
+      "out_degree": 1,
+      "luhmann_number": "76-13f",
+      "title": "ZK I Zettel 76,13f",
+      "zk": 1,
+      "section": "76",
+      "text_preview": "76,13f\nDie Paradoxien der Kausalität sind darauf zurückzuführen, dass die Kausalität eine Weise der Begründung  \n    des Seienden durch das Seiende ist.\n1; 2 (76,13,3)\nDas wird – als eine geschichtlic"
+    },
+    {
+      "ekin": "ZK_1_NB_28-12c_V",
+      "in_degree": 27,
+      "out_degree": 1,
+      "luhmann_number": "28-12c",
+      "title": "ZK I Zettel 28,12c",
+      "zk": 1,
+      "section": "28",
+      "text_preview": "28,12c Die These, dass Organisationswissenschaft mit  \n    menschlichem Handeln zu tun habe, ist – wie auch  \n    Ulrich\n(vgl. 28,12b1a) sieht – zu allgemein. Denn auch  \n    andere Wissenschaften hab"
+    },
+    {
+      "ekin": "ZK_1_NB_28-10j42_V",
+      "in_degree": 26,
+      "out_degree": 1,
+      "luhmann_number": "28-10j42",
+      "title": "ZK I Zettel 28,10j42",
+      "zk": 1,
+      "section": "28",
+      "text_preview": "28,10j42 Das Problem: Organisation in der Lebenswelt  \n    kommt auf eine sehr grundsätzliche Weise vor Augen, wenn  \n    man nach der Stabilität, dem festen, dauerhaften  \n    Bestand der Sozialordnu"
+    },
+    {
+      "ekin": "ZK_1_NB_57-4e7b1e_V",
+      "in_degree": 26,
+      "out_degree": 0,
+      "luhmann_number": "57-4e7b1e",
+      "title": "ZK I Zettel 57,4e7b1e",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4e7b1e\nHorizont - Substanz - Identität der Dinge\n1  \n      \n  \n  \n  \n  \n  \n konkreten Sinnes!\nDazu wären Husserls Analysen über die Konstitution des Dinges  \n    auszuwerten.\nDie Frage ist, wie wei"
+    },
+    {
+      "ekin": "ZK_2_NB_21-3d5b11z_V",
+      "in_degree": 26,
+      "out_degree": 1,
+      "luhmann_number": "21-3d5b11z",
+      "title": "ZK II Zettel 21/3d5b11z",
+      "zk": 2,
+      "section": "21",
+      "text_preview": "21/3d5b11z Einen Versuch, die Entstehung von Differenzierung  \n    genetisch zu erklären, bietet Maruyamas (1963) Theorie  \n    der Abweichungsverstärkung.  \n    Dazu 25/4b2m."
+    },
+    {
+      "ekin": "ZK_1_NB_57-4e7b1e77d1b_V",
+      "in_degree": 25,
+      "out_degree": 0,
+      "luhmann_number": "57-4e7b1e77d1b",
+      "title": "ZK I Zettel 57,4e7b1e77d1b",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4e7b1e77d1b\n2 Das ist der grundsätzlich berechtigte phänomenologische Ausgangspunkt. a\nDamit ist jedoch noch in keiner Weise eine Richtung  \n    der Thematisierung und Interpretation des Erlebens  "
+    },
+    {
+      "ekin": "ZK_1_NB_57-4e7b1a35_V",
+      "in_degree": 25,
+      "out_degree": 1,
+      "luhmann_number": "57-4e7b1a35",
+      "title": "ZK I Zettel 57,4e7b1a35",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4e7b1a35\nErwartungslehre als Bezugsrahmen für  \n    die Deutung des Emotionalen\n1;  \n    noch völlig offen.\nHinweise:  \n    Blackburn, S. 146: \"The kind of situation in which normal  \n    emotion i"
+    },
+    {
+      "ekin": "ZK_1_NB_62-1d23n_V",
+      "in_degree": 24,
+      "out_degree": 1,
+      "luhmann_number": "62-1d23n",
+      "title": "ZK I Zettel 62,1d23n",
+      "zk": 1,
+      "section": "62",
+      "text_preview": "62,1d23n\n8 Diese Definition hat den Vorteil, zugleich  \n    Möglichkeiten einer funktionalen Analyse der  \n    Sozialordnung zu eröffnen: Die Funktion der Sozialordnung ist es, erfüllbare Erwartungen "
+    },
+    {
+      "ekin": "ZK_2_NB_533-15z_V",
+      "in_degree": 23,
+      "out_degree": 0,
+      "luhmann_number": "533-15z",
+      "title": "ZK II Zettel 533/15z",
+      "zk": 2,
+      "section": "533",
+      "text_preview": "533/15z"
+    },
+    {
+      "ekin": "ZK_1_NB_28-10j_V",
+      "in_degree": 23,
+      "out_degree": 6,
+      "luhmann_number": "28-10j",
+      "title": "ZK I Zettel 28,10j",
+      "zk": 1,
+      "section": "28",
+      "text_preview": "28,10j\nOrganisation und Lebenswelt\n2\nSystematische Anknüpfung 88,1d5, insbesondere\nf oder 57,4e7b3c30.  \n    Vgl. auch 70; 60,4v13; 60,6h; 83,2c(b); 19,1. 1\nOrganisation bedeutet stets eine Teilfestle"
+    },
+    {
+      "ekin": "ZK_1_NB_28-10f17_V",
+      "in_degree": 23,
+      "out_degree": 1,
+      "luhmann_number": "28-10f17",
+      "title": "ZK I Zettel 28,10f17",
+      "zk": 1,
+      "section": "28",
+      "text_preview": "28,10f17 Die Funktion der Funktion ist es: die  \n    Auswechselung von Identitäten in einem bestimmten (theoretischen oder praktischen) Zusammenhang  \n    zu regeln. 1\nUm dieser ihrer Funktion willen "
+    },
+    {
+      "ekin": "ZK_1_NB_57-4e7b3c30_V",
+      "in_degree": 22,
+      "out_degree": 0,
+      "luhmann_number": "57-4e7b3c30",
+      "title": "ZK I Zettel 57,4e7b3c30",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4e7b3c30 Auf Grund der gesamten vorstehenden Notizen, die  \n    den gründenden, identischen Sinn sichernden Horizont in seiner  \n    allgemeinen Bedeutung und in seiner Bedeutung als  \n    gesamtko"
+    },
+    {
+      "ekin": "ZK_1_NB_57-4e7b1a10f_V",
+      "in_degree": 22,
+      "out_degree": 1,
+      "luhmann_number": "57-4e7b1a10f",
+      "title": "ZK I Zettel 57,4e7b1a10f",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4e7b1a10f bringt Postman Belege und Erkenntnisse aus der  \n    experimentellen Psychologie bei.\nAls weiterer Gesichtspunkt für die Erwartungsstärke kann  \n    der soziale Consens\n1 angeführt werden"
+    },
+    {
+      "ekin": "ZK_1_NB_57-4e7b1e4j_V",
+      "in_degree": 22,
+      "out_degree": 0,
+      "luhmann_number": "57-4e7b1e4j",
+      "title": "ZK I Zettel 57,4e7b1e4j",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4e7b1e4j\nZum logischen Problem der Identität\n1; 3; 4\nDas logische Problem der Identität ist auf Grund der Denkvoraussetzungen der substantiellen Ontologie entwickelt worden.  \n    Dabei erhellt das"
+    },
+    {
+      "ekin": "ZK_1_NB_21-5a10_V",
+      "in_degree": 21,
+      "out_degree": 0,
+      "luhmann_number": "21-5a10",
+      "title": "ZK I Zettel 21,5a10",
+      "zk": 1,
+      "section": "21",
+      "text_preview": "21,5a10\nDie Aufgabe (Funktion 15) des natürlichen  \n    Führers, der Kern seiner Rolle, ist die Symbolisierung und Kommunikation 6; 2; 4 gruppeneinheitlicher  \n    Verhaltenserwartungen.\n1; 3; 5; 7; 8"
+    },
+    {
+      "ekin": "ZK_2_NB_44-11_R",
+      "in_degree": 21,
+      "out_degree": 0,
+      "luhmann_number": "44-11",
+      "title": "ZK II Zettel 44/11 - Rückseite",
+      "zk": 2,
+      "section": "44",
+      "text_preview": ""
+    },
+    {
+      "ekin": "ZK_1_NB_83-2c3-12_V",
+      "in_degree": 21,
+      "out_degree": 3,
+      "luhmann_number": "83-2c3-12",
+      "title": "ZK I Zettel 83,2c3,12",
+      "zk": 1,
+      "section": "83",
+      "text_preview": "83,2c3,12 Dasjenige, was in Situationen gemeinsam sein  \n    kann, 6 das ist die Perspektive; 1; 2 (vgl. auch 57,4e7b3c16a2;  \n    17,1b14; 33,1d5f; 7; 8)\nIch kann nicht die Situation eines anderen  \n"
+    },
+    {
+      "ekin": "ZK_1_NB_28-10l_V",
+      "in_degree": 20,
+      "out_degree": 5,
+      "luhmann_number": "28-10l",
+      "title": "ZK I Zettel 28,10l",
+      "zk": 1,
+      "section": "28",
+      "text_preview": "28,10l\nRationalität der Organisation\nEine Organisation ist rational in dem Masse, 5 als  \n    die Handlungen richtig sind. 2 Handlungen sind  \n    richtig in dem Masse, als sie auf  Vergleich  \n    ih"
+    },
+    {
+      "ekin": "ZK_1_NB_32-8f_V",
+      "in_degree": 20,
+      "out_degree": 0,
+      "luhmann_number": "32-8f",
+      "title": "ZK I Zettel 32,8f",
+      "zk": 1,
+      "section": "32",
+      "text_preview": "32,8f Dass die Wahrheit neuzeitlich als Gewissheit verstanden wird und dementsprechend Methode zum Wahrheitskriterium, hängt damit zusammen, dass die primär  \n    phänomenale, naiv akzeptierte Welt si"
+    },
+    {
+      "ekin": "ZK_1_NB_28-10f9c25_V",
+      "in_degree": 20,
+      "out_degree": 0,
+      "luhmann_number": "28-10f9c25",
+      "title": "ZK I Zettel 28,10f9c25",
+      "zk": 1,
+      "section": "28",
+      "text_preview": "28,10f9c25 sprüche tolerieren; oder es bilden sich Gegenstrukturen, 1  \n    die im Hinblick auf die gleiche Bezugseinheit funktional  \n    sind.\nDiese \"Entlogisierung\" des Begriffs der Bezugseinheit  "
+    },
+    {
+      "ekin": "ZK_1_NB_28-10l5c3_V",
+      "in_degree": 20,
+      "out_degree": 1,
+      "luhmann_number": "28-10l5c3",
+      "title": "ZK I Zettel 28,10l5c3",
+      "zk": 1,
+      "section": "28",
+      "text_preview": "28,10l5c3\nOrganisationswissenschaft erlauben – und zu  \n    wirklich bewährbaren Verhaltensvoraussagen dürfte die Berücksichtigung der von der Organisationswissenschaft erforschten  \n    Tatbestände u"
+    },
+    {
+      "ekin": "ZK_1_NB_84-1f5_V",
+      "in_degree": 20,
+      "out_degree": 0,
+      "luhmann_number": "84-1f5",
+      "title": "ZK I Zettel 84,1f5",
+      "zk": 1,
+      "section": "84",
+      "text_preview": "84,1f5 Zum Problem der Intersubjektivität der Regel  \n    leistet Winch einen wesentlichen Beitrag.\nDie Intersubjektivität der Regel ist darin begründet,  \n    dass andere\nmein Verhalten wiederholen, "
+    },
+    {
+      "ekin": "ZK_1_NB_57-4e7b7a_V",
+      "in_degree": 19,
+      "out_degree": 0,
+      "luhmann_number": "57-4e7b7a",
+      "title": "ZK I Zettel 57,4e7b7a",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4e7b7a\nDie Gesamtkonstruktion der pragmatischen Relevanz  \n    geschieht durch die Auslegung des Handelns als Bewirken einer  \n    Wirkung\n1\nDie kausale Auslegung des Handels hat den Sinn, der  \n  "
+    },
+    {
+      "ekin": "ZK_1_NB_62-8_V",
+      "in_degree": 19,
+      "out_degree": 1,
+      "luhmann_number": "62-8",
+      "title": "ZK I Zettel 62,8",
+      "zk": 1,
+      "section": "62",
+      "text_preview": "62,8 Mit dem Begriff der Rolle ist der Mensch sozialpsychologisch bzw. soziologisch objektivierbar. 1\nVgl. dazu namentlich die Arbeiten von G.H. Mead:  \n    Mind, Self, and Society, Chicago 1934  \n   "
+    },
+    {
+      "ekin": "ZK_1_NB_57-4e7b1a35a28_V",
+      "in_degree": 19,
+      "out_degree": 0,
+      "luhmann_number": "57-4e7b1a35a28",
+      "title": "ZK I Zettel 57,4e7b1a35a28",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4e7b1a35a28 Gefühle müssen, um ihre stabilisierende  \n    Funktion erfüllen zu können, eine gewisse Form haben. 1  \n    Ein allgemeines Unbehagen (Angst 4), eine undifferenzierte Triebhaftigkeit, d"
+    },
+    {
+      "ekin": "ZK_1_NB_60-4c_V",
+      "in_degree": 19,
+      "out_degree": 0,
+      "luhmann_number": "60-4c",
+      "title": "ZK I Zettel 60,4c",
+      "zk": 1,
+      "section": "60",
+      "text_preview": "60,4c Das Schema Mittel / Zweck hat die Funktion,  \n    die Entscheidungssituation zu vereinfachen und damit  \n    die Entscheidung zu erleichtern. 1 Vgl. auch, allerdings ziemlich unklar:  \n    Barna"
+    },
+    {
+      "ekin": "ZK_1_NB_62-1d3g4_V",
+      "in_degree": 19,
+      "out_degree": 0,
+      "luhmann_number": "62-1d3g4",
+      "title": "ZK I Zettel 62,1d3g4",
+      "zk": 1,
+      "section": "62",
+      "text_preview": "62,1d3g4 Die Besonderheit des Problems der Übereinstimmung  \n    bei komplementären Verhaltenserwartungen liegt in der  \n    Kontingenz der wechselseitigen Erwartungserfüllung\n1; 2  \n    begründet. De"
+    },
+    {
+      "ekin": "ZK_1_NB_57-4e7b1ca5g_V",
+      "in_degree": 18,
+      "out_degree": 0,
+      "luhmann_number": "57-4e7b1ca5g",
+      "title": "ZK I Zettel 57,4e7b1ca5g",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4e7b1ca5g\nganzen Bezirks von Gegenständen gelangen. 1\n3.) Das Vorstehende kann mit etwas anderen Worten und  \n    Begriffen und im Anschluss an Kuhn, insbesondere S. 115ff. auch  \n    folgendermass"
+    },
+    {
+      "ekin": "ZK_1_NB_62-1d23_V",
+      "in_degree": 18,
+      "out_degree": 0,
+      "luhmann_number": "62-1d23",
+      "title": "ZK I Zettel 62,1d23",
+      "zk": 1,
+      "section": "62",
+      "text_preview": "62,1d23 Vom Begriff der Verhaltenserwartung aus ist  \n    der Begriff der sozialen Ordnung\n2; 5; 6 zu definieren. 3; 7  \n    Soziale Ordnung besteht in dem Masse, als die  \n    Menschen sich ihren wec"
+    },
+    {
+      "ekin": "ZK_1_NB_28-10f11_V",
+      "in_degree": 17,
+      "out_degree": 6,
+      "luhmann_number": "28-10f11",
+      "title": "ZK I Zettel 28,10f11",
+      "zk": 1,
+      "section": "28",
+      "text_preview": "28,10f11\nZur Innenordnung der funktional verknüpften  \n    Variablen\n2; 3\nZum Variablenbegriff vgl. auch 33,1a12,3 und, teilweise nicht ganz harmonierend 17,1b24; 1;   \n28,10f10j8 ff.; 28,10f10g1; 28,"
+    },
+    {
+      "ekin": "ZK_1_NB_57-4e7b1_V",
+      "in_degree": 17,
+      "out_degree": 1,
+      "luhmann_number": "57-4e7b1",
+      "title": "ZK I Zettel 57,4e7b1",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4e7b1 Die Als-Struktur des Verstehens lässt sich  \n    darauf zurückführen, dass alles Verstehen von Seiendem  \n    als solchem in einem Horizontentwurf\n1; 3 wurzelt. 2 Die  \n    unmittelbaren Eind"
+    },
+    {
+      "ekin": "ZK_1_NB_62-1d26f_V",
+      "in_degree": 17,
+      "out_degree": 0,
+      "luhmann_number": "62-1d26f",
+      "title": "ZK I Zettel 62,1d26f",
+      "zk": 1,
+      "section": "62",
+      "text_preview": "62,1d26f Erwartungsenttäuschungen werden als  \n    Ausnahmen und Ordnungswidrigkeiten erlebt. Sie  \n    sind daher erklärungsbedürftige Ereignisse. 10; 12 Bei  \n    Verhaltenserwartungen werden Enttäu"
+    },
+    {
+      "ekin": "ZK_1_NB_57-4e7b1-78_V",
+      "in_degree": 17,
+      "out_degree": 0,
+      "luhmann_number": "57-4e7b1-78",
+      "title": "ZK I Zettel 57,4e7b1,78",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4e7b1,78\nHorizontverschachtelung\n1\nEine besondere strukturelle Eigentümlichkeit des  \n    menschlichen Erlebnishorizontes, die Horizontverschachtelung  \n    genannt werden soll, bedarf näherer Aufk"
+    },
+    {
+      "ekin": "ZK_1_NB_33-1da18_V",
+      "in_degree": 17,
+      "out_degree": 13,
+      "luhmann_number": "33-1da18",
+      "title": "ZK I Zettel 33,1da18",
+      "zk": 1,
+      "section": "33",
+      "text_preview": "33,1da18\nZur Geschichte der Trennung von Theorie und  \n    Erfahrung (als Geschichte der Wahrheit) 1\nVerweisung: 33,1da15,1; 33,1d11; 57,4e7b1d; 32,5l1;  \n    57,6a4a; 57,4f7g6; 60,4l21; 32,6p; 57,4e7"
+    },
+    {
+      "ekin": "ZK_2_NB_21-11_V",
+      "in_degree": 17,
+      "out_degree": 0,
+      "luhmann_number": "21-11",
+      "title": "ZK II Zettel 21/11",
+      "zk": 2,
+      "section": "21",
+      "text_preview": "21/11"
+    },
+    {
+      "ekin": "ZK_1_NB_28-10i_V",
+      "in_degree": 17,
+      "out_degree": 4,
+      "luhmann_number": "28-10i",
+      "title": "ZK I Zettel 28,10i",
+      "zk": 1,
+      "section": "28",
+      "text_preview": "28,10i\nZur Formalität der Organisation\n2\nvgl. 7,7g16a; 70; 28,15; 1; 84; 45,8b; 49,13\nFormalität wird in der Soziologie als eines der Kennmale der Bürokratie  \n    geschildert. Vgl. Merton, S. 151: \"T"
+    },
+    {
+      "ekin": "ZK_1_NB_60-4p4_V",
+      "in_degree": 17,
+      "out_degree": 7,
+      "luhmann_number": "60-4p4",
+      "title": "ZK I Zettel 60,4p4",
+      "zk": 1,
+      "section": "60",
+      "text_preview": "60,4p4\nZweck/Mittel-Schema und formale Logik\n1; 2\nDer Zweck ist – im Unterschied zum Begriff des Zweckes – kein  \n    Begriff, sondern je einmaliger Situationssinn . Er ist  \n    wiederholbar, übertra"
+    },
+    {
+      "ekin": "ZK_1_NB_57-2-23_V",
+      "in_degree": 16,
+      "out_degree": 4,
+      "luhmann_number": "57-2-23",
+      "title": "ZK I Zettel 57,2,23",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,2,23 Der Substanzbegriff setzt die innere Rationalität des  \n    Seienden voraus (57,2,2g) und das heisst – gemäss der Bestimmung  \n    des Menschen als animal rationale 2 und sociale zugleich – di"
+    },
+    {
+      "ekin": "ZK_1_NB_62-10_V",
+      "in_degree": 16,
+      "out_degree": 3,
+      "luhmann_number": "62-10",
+      "title": "ZK I Zettel 62,10",
+      "zk": 1,
+      "section": "62",
+      "text_preview": "62,10\nZum Problem der widerstreitenden Rollen, die von einer  \n    Person zugleich gefordert werden\n3; 4; 5\nLiteratur:\nW.I. Thomas, Fl. Znaniecki, The Polish Peasant, NY 1927, pp.  \n    1866-70, 1888,"
+    },
+    {
+      "ekin": "ZK_1_NB_57-3p_V",
+      "in_degree": 16,
+      "out_degree": 11,
+      "luhmann_number": "57-3p",
+      "title": "ZK I Zettel 57,3p",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,3p\nIn den grossen metaphysischen Weltspaltungen  \n    Sein und Schein (32,8f\ninsbesondere\n32,8f22), essentia - existentia, und diese  \n    wieder in Wert und Wirklichkeit (7,2b1; 7,16) bzw. Theorie"
+    },
+    {
+      "ekin": "ZK_1_NB_76-14_V",
+      "in_degree": 16,
+      "out_degree": 2,
+      "luhmann_number": "76-14",
+      "title": "ZK I Zettel 76,14",
+      "zk": 1,
+      "section": "76",
+      "text_preview": "76,14 Innerhalb des Bereiches der Herrschaft des Satzes  \n    vom Grunde sind die Kausalfaktoren Ursache und  \n    Wirkung (und entsprechend: Mittel und Zweck) nur noch  \n    als funktionale Identität"
+    },
+    {
+      "ekin": "ZK_1_NB_62-1d24a10_V",
+      "in_degree": 15,
+      "out_degree": 1,
+      "luhmann_number": "62-1d24a10",
+      "title": "ZK I Zettel 62,1d24a10",
+      "zk": 1,
+      "section": "62",
+      "text_preview": "62,1d24a10 Positiv-funktional in diesem speziellen  \n    Sinne, d.h. im Blick auf das Problem der Kontingenz  \n    der Erwartungserfüllung, ist nur eine bestimmte  \n    Art von Konsens, nämlich Konsen"
+    },
+    {
+      "ekin": "ZK_1_NB_32-12_V",
+      "in_degree": 15,
+      "out_degree": 2,
+      "luhmann_number": "32-12",
+      "title": "ZK I Zettel 32,12",
+      "zk": 1,
+      "section": "32",
+      "text_preview": "32,12\nMethoden sind Weisen  / Regeln\nzweckmässigen  \n    Vorgehens, 3; 4 deren Zweck Erwerb wahren Wissens ist.\nDas setzt eine bestimmte Auffassung des Handelns  \n    schon voraus, nämlich des Handeln"
+    },
+    {
+      "ekin": "ZK_1_NB_57-4e7b1a35b_V",
+      "in_degree": 15,
+      "out_degree": 0,
+      "luhmann_number": "57-4e7b1a35b",
+      "title": "ZK I Zettel 57,4e7b1a35b",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4e7b1a35b Die Horizontlehre ist für das Problem der  \n    Gefühlsübertragung und Gefühlsverallgemeinerungen auszuwerten. 1; 2; 3\nGefühle sind mehr oder weniger unscharfe Einstellungen,  \n    deren "
+    },
+    {
+      "ekin": "ZK_1_NB_57-4f7_V",
+      "in_degree": 15,
+      "out_degree": 0,
+      "luhmann_number": "57-4f7",
+      "title": "ZK I Zettel 57,4f7",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4f7\n10.) Vorstellungen, die man hat, können  \n    weitergegeben werden, wenn sie nur klar genug  \n    sind. Daher die grenzenlose Übertragbarkeit wissenschaftlichen Wissens (vgl. auch 57,3a3c/d). 2"
+    },
+    {
+      "ekin": "ZK_1_NB_57-4e7b1a10c_V",
+      "in_degree": 15,
+      "out_degree": 0,
+      "luhmann_number": "57-4e7b1a10c",
+      "title": "ZK I Zettel 57,4e7b1a10c",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4e7b1a10c Relevanzerleben mit bestimmten weiteren Vorzeichnungen ihren Ausgang nehmen. – Das ist im übrigen ein  \n    anderes Problem als das der Typizität, die von genereller Bedeutung  \n    ist.\n"
+    },
+    {
+      "ekin": "ZK_1_NB_84-1g_V",
+      "in_degree": 15,
+      "out_degree": 1,
+      "luhmann_number": "84-1g",
+      "title": "ZK I Zettel 84,1g",
+      "zk": 1,
+      "section": "84",
+      "text_preview": "84,1g\nRegeln für organisierte Kooperation im besonderen\n1\n1.) Regeln, die Kooperation organisieren, haben gegenüber anderen  \n    Handlungsregeln den besonderen Sinn, für die Einheit der  \n    Koopera"
+    },
+    {
+      "ekin": "ZK_2_NB_7-2m_V",
+      "in_degree": 15,
+      "out_degree": 0,
+      "luhmann_number": "7-2m",
+      "title": "ZK II Zettel 7/2m",
+      "zk": 2,
+      "section": "7",
+      "text_preview": "7/2m"
+    },
+    {
+      "ekin": "ZK_1_NB_28-10f17i_V",
+      "in_degree": 14,
+      "out_degree": 2,
+      "luhmann_number": "28-10f17i",
+      "title": "ZK I Zettel 28,10f17i",
+      "zk": 1,
+      "section": "28",
+      "text_preview": "28,10f17i Funktionalisierender Gesichtspunkt kann\n(s. 28,10f17i2)  \n    auch ein Problem sein. Ein Problem ist funktional  \n    definiert, wenn es mehrere (funktional aequivalente) Lösungsmöglichkeite"
+    }
+  ],
+  "top_50_most_outgoing": [
+    {
+      "ekin": "ZK_2_SW1_009_R",
+      "out_degree": 48,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 009: E - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Erfolg\n90\nexperimentum crucis\n33,1da12\nEvidenz\n57,4e7b1ba2; 29,4e; 57,4e7b1f4a\nErsatz\n76,3,2d; 57,4e7b3c32; 28,10f17(g); 28,10f19f10\nEndzweck\n7,7e10; 60,4l35\nErdherrschaft\n20,7d; 16,6\nEr\n83,2b6b\nErken"
+    },
+    {
+      "ekin": "ZK_2_SW1_015_V",
+      "out_degree": 44,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 015: H",
+      "zk": 1,
+      "section": "",
+      "text_preview": "H\nHorizont\n57,4e7b1 (s.u.)\nHypothese\n57,4e7b3a; 33,1a\nHoffnung\n40,7; 57,4c; 57,4e7b1ca7\nHorizontstruktur des Verstehens\n57,4e7b; 29,12; 28,4,9\nHobbes, Thomas\n1,5B1; 12,5 f.; 33,1d1A1,9a; 52,8,1d\nHerst"
+    },
+    {
+      "ekin": "ZK_2_SW1_036_V",
+      "out_degree": 43,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 036: T",
+      "zk": 1,
+      "section": "",
+      "text_preview": "T\nTheorie\n33; 57,3,2; 57,4e7b3c6c\nTrennung von Staat und Gesellschaft\n9,2a2; 11,3\ntranszendentale Logik\n57,9a2\nTotalplanung\n19,3aa; 20,7\nTrennung von\nStaat und Kirche\n9,2a3\nTechnik\n55; 57,1b3c; 17,4e;"
+    },
+    {
+      "ekin": "ZK_2_SW1_030_R",
+      "out_degree": 43,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 030: R - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Reine Rechtslehre\n12,5a2;\n1,6f1C7; 1,12b; 29,2\nres extensa\n57,4e7b3c10b; 57,3a6; 7,7e16a\nReformation\n57,4,5; 60,4d6a\nRechtfertigung\n17,1e7; 57,4,7; 60,4d; 17,17c; 12,16k\nReflexion\n60,14f;\n57,4e7b1ca5d"
+    },
+    {
+      "ekin": "ZK_2_SW1_024_V",
+      "out_degree": 40,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 024: N",
+      "zk": 1,
+      "section": "",
+      "text_preview": "N\nNormung\n28,10e\nNaturwissenschaft / Geisteswissenschaft\n76,2, siehe \nGeisteswissenschaften / Naturwissenschaften\nNotstand\n34\nNeuerrichtung von\nOrganisationen\n67\nNeukantianismus\n57,4e7b1ba5c; 29,14g2;"
+    },
+    {
+      "ekin": "ZK_2_SW1_043_V",
+      "out_degree": 39,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 043: Z",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Z\nZeit s.u.; 28,10c; 57,4e7b3g; 44,4e; 21,1a; 20,5a; 17,1b10\nZentralisation\n48\nZustand\n73\nZweifel\n33,1A; 57,4,3; 32,8; 58,7b; 84,6d3; 57,4e7b1e112\nZuteilung\n83,2c3; 12,14g; 82,11a\nZurechnung\n83,2c2m; "
+    },
+    {
+      "ekin": "ZK_2_SW1_041_R",
+      "out_degree": 37,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 041: W - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Wissenschaftsförderung, staatliche\n92\nWahrheit / Gerechtigkeit\n12,14d2f14a; 12,14d5b1\nWunder\n57,4e7b1ca7a\nWerkzeug\n60,4m\nWiderruflichkeit (von Entscheidungen)\n60,3e\nWahrheit\n17,17; 78,6; 32,10; 83,2c3"
+    },
+    {
+      "ekin": "ZK_2_SW1_041_V",
+      "out_degree": 36,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 041: W",
+      "zk": 1,
+      "section": "",
+      "text_preview": "W\nWesen\n78,1; 57,4e7b1c1; 12,14e9; 6,11\nWissenssoziologie\n29,6; 14,5; 17,17g7; 83,2c3,13d29\nWiderstandsrecht\n12,1a\nWiederholung\n28,10d; 57,4e8; 12,14r; 64,1c; 60,5f; 17,1b5; 76,5g; 88,1d8\nwissenschaft"
+    },
+    {
+      "ekin": "ZK_2_SW1_032_R",
+      "out_degree": 36,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 032: S - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Staatsgebiet\n35; 28,10h\nStaatsmann\n21\nscientific management\n14,8d4; 52,7\nscience pour science\n29,9a\nspan of control\n49,3; 5,16b\nStatus\n45,4a; 45,8\nSymbole\n45,4a1; 45,8a22; 101,19f; 78,25\nStaatsraison\n"
+    },
+    {
+      "ekin": "ZK_2_SW1_011_V",
+      "out_degree": 36,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 011: F",
+      "zk": 1,
+      "section": "",
+      "text_preview": "F\nfunktionale Logik\n57,7c; 33,1a1c1\nFortschritt\n57,4c; 57,4e3; 57,7b1; 33,1d2; 57,4e7b3c; 29,5ba\nFilm\n13,5e1; 7,11b; 19,7n\nFreizeit / Musse\n28,10b\nFunktion\n28,10f; 71,4\nForschungslogik\n32,3\nFormalisie"
+    },
+    {
+      "ekin": "ZK_2_SW1_039_V",
+      "out_degree": 36,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 039: V",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Verstehen\n29,12b4; 57,3a3o1; 83,2c3c6; 57,3r2b; 57,3r5\nVerantwortungsethik\n7,5; 60,4e14; 90,3\nVernunft\n83,1a7a; 17,3g6; 78,8\nvolonté générale\n1,5A1a; 17,3g2a\nVoraussetzungslosigkeit\n57,4e7b1ca5g2b; 32"
+    },
+    {
+      "ekin": "ZK_2_SW1_013_R",
+      "out_degree": 35,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 013: G - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Gestalttheorie\n29,5d\nGrundbegriff\n57,4e7b3c7a\nGesetzgebung\n87\nGemeinschaft\n19,7; 89,1f; 17,17k\nGattungsbegriff\n33,1a1c2\nGedankenexperiment\n33,1da13\nGrundplanung, s. Totalplanung\nGrund, Satz vom zureic"
+    },
+    {
+      "ekin": "ZK_2_SW1_016_R",
+      "out_degree": 34,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 016: I - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Intentionalität\n57,3a3n5; 57,4e7b1cae; 60,14f; 57,4e7b1c9; 57,4e7b1,55; s.u.\nIndex\n32,5n\nInterview\n33,1d1A4g6; 60,14hb\nIdee\n78,5\nIrrtum\n60,3bb7; 32,12b11; 32,8f17; 78,13\nIndividualismus\n83,2e2\niustifi"
+    },
+    {
+      "ekin": "ZK_2_SW1_001_R",
+      "out_degree": 34,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 001: A - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Arbeiter\n83,2c5l\nAggregationsproblem\n75,2; 80,2c\nAusführungsentscheidungen\n60,16\nAbsolutes\n60,4d18; 17,16i\nAtomismus\n57,2,18\nAllgemeinheit\n57,4e7b1,15; 57,4e7b2g\nÄsthetik\n101,19\nAbnutzung\n17,3,5b; 101"
+    },
+    {
+      "ekin": "ZK_1_NB_57-4e7b4q4_V",
+      "out_degree": 32,
+      "in_degree": 14,
+      "luhmann_number": "57-4e7b4q4",
+      "title": "ZK I Zettel 57,4e7b4q4",
+      "zk": 1,
+      "section": "57",
+      "text_preview": "57,4e7b4q4\nSein / Nichtsein\nIn der Lebenswelt lassen sich Sein und Nichtsein nicht  \n    logisch trennen. Dazu vgl. 57,4e7b1e4j; 57,4e7b3g21c;  \n    57,4e7b1f10a; 32,6f5; 57,4e7b3c65a; 28,10f17p; 57,4"
+    },
+    {
+      "ekin": "ZK_2_SW1_034_R",
+      "out_degree": 32,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 034: S - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Stereotypes\nHandeln\n17,1b12,1 (62,1d14)\nStufenbau\nder Rechtsordnung\n60,3b7ad; 12,5a29; 49,3b3\nStammler, Rudolf\n83,3c\nSyllogismus\n32,6e; 33,1da14; 33,1,4b3\nSchluss, logischer\n32,6e; 33,1da14; 33,1,4b3\n"
+    },
+    {
+      "ekin": "ZK_2_SW1_021_V",
+      "out_degree": 31,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 021: L",
+      "zk": 1,
+      "section": "",
+      "text_preview": "L\nline – staff\n44,4; 60,3b7h; 83,2c3l2a\nLeitung\n42\nLegitimität\n54; 45,7b\nLos\n63\nLokalisierung\n28,10hA\nLogik\n32,6; 12,5a27; 57,4e7b4m3\nLebenswelt\n57,4e7b3d; 57,4f7g4; 17,1b16; 57,4e7b1ca5g; 57,6a12; 57"
+    },
+    {
+      "ekin": "ZK_2_SW1_032_V",
+      "out_degree": 30,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 032: S",
+      "zk": 1,
+      "section": "",
+      "text_preview": "S\nStrenge der Wissenschaft\n57,4e7b3a\nSubiectum (ὺποκείμενον\n)\n57,2; 57,4e7b3c16f\nSubstantia\n57,2,1; 33,1a1c6; 57,4e7b1e; 1,12\nSubjektität des Menschen\n57,3; 17,7e; 12,5c; 52,2; 11,1\nSozialwissenschaft"
+    },
+    {
+      "ekin": "ZK_2_SW1_009_V",
+      "out_degree": 30,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 009: E",
+      "zk": 1,
+      "section": "",
+      "text_preview": "E\nEntwurf\n57,4e7b1\nExaktheit\n57,4e7b3a; 23,5f\nEindeutigkeit\n57,4e1a; 8,1c; 57,4f7u5\nEinfachheit\n57,4l; 57,3e2; 57,4e7b1e90\nEchtheit\n51,2,1\nExperiment\n33,1d1; 57,4e7b3c8\nEinheit und Vereinheitlichung\n1"
+    },
+    {
+      "ekin": "ZK_2_SW1_013_V",
+      "out_degree": 30,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 013: G",
+      "zk": 1,
+      "section": "",
+      "text_preview": "G\nGesellschaft\n9,2a2; 11,3; 89,1; 83,2b6a7\nGesetzesbegriff\n57,3i; 23,5; 33,1d1A1,4; 12,14i; 57,2,21\nGleichheit\n1,2; 6\nGrundrechte\n11,4\nGegenstand der Wissenschaft\n9,3; 29,12a3\nGlück\n7,11\nGeltung\n33,1d"
+    },
+    {
+      "ekin": "ZK_2_SW1_036_R",
+      "out_degree": 29,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 036: T - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Tausch\n83,2c6a; 60,4l32\nθεωρία\n33,2g\nTranszendentalien\n7,16c2; 1,13; 32,6m1; 57,3p3\nTeilhabe\n57,2,2c3a\nTypik (des Horizontes)\n57,4e7b1,23\nTeleologie\n76,11b; 60,4l25\nTastsinn\n57,4e7b1e35a1\nTiefe der\nWa"
+    },
+    {
+      "ekin": "ZK_2_SW1_027_R",
+      "out_degree": 29,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 027: P - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "principium individuationis\n76,5g1\npanel\n33,1d1A4g\nPragmatism\n33,2e; 57,6a5; 17,1b9b1; 17,1b9,7; 57,3h8\nPädagogik\n93; 52,8,3e\nποίησις\n7,7g3e\nu.ö.\n57,6,7\nperceptio\n78,1k\nPrinzip\n57,4e7b1b\nPflicht\n60,3a2"
+    },
+    {
+      "ekin": "ZK_2_SW1_008_V",
+      "out_degree": 28,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 008: E",
+      "zk": 1,
+      "section": "",
+      "text_preview": "E\nEntscheidbarkeit der Rechtsfrage\n12,16d2; 12,5a27\nEntscheidbarkeit\n60,15a\nEntfremdung\n89,1g\nEntlastung\n76,2g2\nErscheinung\n57,2,25\nEmpirismus\n- s.o. -\n57,2,18e; 62,1f9 ff.\nErfahrung (innere)\n32,5l2b1"
+    },
+    {
+      "ekin": "ZK_2_SW1_025_R",
+      "out_degree": 27,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 025: O - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Öffentliches Dasein\n83,2b6; 19,7\nÖffentlichkeit\n83,2b6c; 17,8f; 12,14d5b5\nOperationen, methodische\n32,9\nOperationismus\n32,9; 33,1a15\nOrt\n19,7k4; 57,4e7b3j5\nÖffentliche Meinung\n83,2b6c4\nOrganisationsmi"
+    },
+    {
+      "ekin": "ZK_2_SW1_030_V",
+      "out_degree": 27,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 030: R",
+      "zk": 1,
+      "section": "",
+      "text_preview": "R\nRousseau, Jean-Jacques\n1,5A; 17,3g2a\nRelevanz (pragmatische – wissenschaftliche)\n57,6a2/3; 17,11eA1a; 83,2c2b; 83,2c2,1\nReichtum\n57,4fb1; 57,4f6\nRecht und Organisation\n12\nRepräsentation\n50\nRegierung"
+    },
+    {
+      "ekin": "ZK_2_SW1_020_R",
+      "out_degree": 27,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 020: K - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Klasse\n78,4; 57,4e7b2f\nKlasse (sozial)\n30,3; 44,17b2\nKelsen, s. reine Rechtslehre\nKompetenzhoheit\n12,5a15d\nKollektivsituation\n83,2c4b\nKompetenz\n60,3a20 ff.\nKonkretheit\n57,4e7b1ca5g\nKategorien\n57,4e7b3"
+    },
+    {
+      "ekin": "ZK_2_SW1_022_V",
+      "out_degree": 27,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 022: M",
+      "zk": 1,
+      "section": "",
+      "text_preview": "M\nMessung\n61; 57,4e1; 33,1d7\nMode\n17,3,6a\nMeinung\n17,3g; 57,4,9; 57,4e7b4q4d2\nMarxismus\n33,3b; 17,11eA2; 52,1f\nmorals\n13,8\nMuße\n / Freizeit\n28,10b; 19,7p; 17,1e4; 57,4e7b3g70a\nMethode\n32; 57,4e7b3c1; "
+    },
+    {
+      "ekin": "ZK_2_SW2d_059_V",
+      "out_degree": 27,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK II (Abt. 4. Schlagwortregister): Zettel 059: In – Inf",
+      "zk": 2,
+      "section": "",
+      "text_preview": "In – Inf\nIndirektheit\n532/4a5e; 21/3d20; 353/1i; 536/11h (1); 21/3d18c60o\nInformationskosten\n333/2b10\nInformationsverdichtung\n35/5k3d\nIndividualisierung\n21/3d7h\nInformation-processing\n44/4c\nIndexzahle"
+    },
+    {
+      "ekin": "ZK_2_SW1_007_V",
+      "out_degree": 26,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 007: D",
+      "zk": 1,
+      "section": "",
+      "text_preview": "D\nDescartes, René\n57,2c\nDetermination\n8,3; 76,11b\nDialektik\n1,6,1a; 57,4e7b3c7f6; 32,6g1f4\nDeduktion / Induktion\n57,3,1d1\nDisziplin\n46\nDienststelle\n75\nDefinition\n57,4e7b3h2a\nDelegation\n86\nDemokratie\n1"
+    },
+    {
+      "ekin": "ZK_2_SW1_004_V",
+      "out_degree": 26,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 004: B",
+      "zk": 1,
+      "section": "",
+      "text_preview": "B\nBegriffe\n33,1a1; 31; 57,4e7b3c11; 57,4e7b3h2a4; 83,2c3,12b31\nBeziehungen als Gegenstand der Wissenschaft\n57,4e7; 23,5a; 23,3; 33,1a9; s.u.\nBentham und liberaler Staat\n9,2a1; 52,3\nBeweis\n57,4k; 28,10"
+    },
+    {
+      "ekin": "ZK_2_SW1_038_V",
+      "out_degree": 26,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 038: U",
+      "zk": 1,
+      "section": "",
+      "text_preview": "U\nÜbertragbarkeit des\nWissens\n17,3e; 57,4f7\nUtopie\n17,7b\nUnterlassen\n83,2c2,6\nÜbungstätigkeit\n33,1d1A4,4b\nUrsprungsnorm\n29,2c; 12,16f\nUrteil\n32,6g1\nultra vires\n16,4d4; 83,2c1b2a\nUtilitarismus\n60,3b4e\n"
+    },
+    {
+      "ekin": "ZK_2_SW1_014_V",
+      "out_degree": 26,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 014: G",
+      "zk": 1,
+      "section": "",
+      "text_preview": "G\nGrundnorm\n12,16f; 29,2c\nGewissen\n60,4d6c2\nGruppe\n70,2\nGewaltenteilung _ _ _ _ _ _; 21,10d; 84,1d17\nGenuss\n57,4e7b3c32; 101,7c; 57,4e7b1a35d\nGeheimnis\n57,4f7c1; 28,10f17,15\nGleichzeitigkeit\n83,2c3,13"
+    },
+    {
+      "ekin": "ZK_2_SW1_016_V",
+      "out_degree": 25,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 016: I",
+      "zk": 1,
+      "section": "",
+      "text_preview": "I\nIndividualismus / Kollektivismus\n52,4; 62,1d24h2\nIdealtypus\n23,4; 33,1a1\nInduktion / Deduktion\n57,3,1d1; 57,4e8j2\nInstrumentalauffassung des Staates\n9,2a; 83,2b; 7,7g3b\nIdee des Staates\n2\nIdeologie\n"
+    },
+    {
+      "ekin": "ZK_2_SW1_002_V",
+      "out_degree": 25,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 002: A",
+      "zk": 1,
+      "section": "",
+      "text_preview": "A\nAffektion\n57,2,2g5d; 62,1d24b\nactio transiens / immanens\n33,2d1a\nArgument\n28,10f7b; 28,10f11n\nAggressivität\n79,6\nAnpassung\n62,8a1; 28,10f4l27; 28,10f9c9a4\nAkten\n83,2c8bA2\nAlternativdefinitionen (von"
+    },
+    {
+      "ekin": "ZK_2_SW1_002_R",
+      "out_degree": 25,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 002: A - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Assoziation\n57,4e7b1a31\nAsymmetrie (der Kausalität)\n76,5f4\naffektive Modelle\n62,1d24b13\nAusschüsse\n99,1\nAbsatz\n62,1d2e\nArbeitsfluss, Arbeitsgang\n83,2c8b\nAttractiveness\n28,10f4l18; 62,1d24a2b; 28,10f17"
+    },
+    {
+      "ekin": "ZK_2_SW2d_011_V",
+      "out_degree": 24,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK II (Abt. 4. Schlagwortregister): Zettel 011: Au – Az (1)",
+      "zk": 2,
+      "section": "",
+      "text_preview": "Au – Az (1)\nAutonomie\n353/1d; 21/3d2b4; 21/3d3b; 7/25g52\nAufmerksamkeit\n35/5h4a; 7/5d4,69; 22/10b2; 52/25z\nauthoritarian personality\n52/8e1; 532/5d3d6f4\nAufstieg\n524/4\nAusbildungswert von Positionen\n4"
+    },
+    {
+      "ekin": "ZK_2_SW1_019_V",
+      "out_degree": 24,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 019: K",
+      "zk": 1,
+      "section": "",
+      "text_preview": "K\nKlatsch\n82,1,1; 19,4b\nKunst\n101\nKomplementarität\n60,4d2e2; 62,1d3; 28,10f17j9\nKooptation\n28,14b\nKultur\n78,14\nKonsumption\n60,4m19\nKontinuität (der Zeit)\n57,4e7b1e40a\nKontinuität (des Horizontes)\n57,4"
+    },
+    {
+      "ekin": "ZK_2_SW1_015_R",
+      "out_degree": 24,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 015: H - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Historismus\n17,17h; 57,4e7b3g27b\nHeiliges\n60,4db5\nHandlungswissenschaft\n83,1d\nHandlung, soziale\n83,2a6\nHomogenität (eines Bereichs)\n57,4e7b3c34; 57,4e7b1,35b\nHintergrund\n57,4e7b1cai3\nHindernis\n60,4e26"
+    },
+    {
+      "ekin": "ZK_2_SW1_022_R",
+      "out_degree": 24,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 022: M - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Mangel\n60,4k; 19,1b6\nMorallehre\n57,3a6\nMasse\n52,1h\nMathematik als Methode\n32,6g3\nMord\n17,8g\nMöglichkeit\n57,4e7b1a1\nnicht vollständig\n26,5,6; 83,2c3,12b38\nMenge\n57,4e7b2f\nMitteilbarkeit\n83,2c3,12a5\nMit"
+    },
+    {
+      "ekin": "ZK_2_SW1_039_R",
+      "out_degree": 23,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 039: V - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "V\nVerfahren\n60,2\nVerfassung\n10,1; 27\nVereinheitlichung\n1\nVetorecht\n4\nVermittlung\n37\nVorschlag\n25\nVerantwortung\n71\nVerbände\n18,6\nVergleichende\nMethode\n57,4e8e\nVorwirkung möglicher Reaktionen\n82,4\nVerte"
+    },
+    {
+      "ekin": "ZK_2_SW1_003_V",
+      "out_degree": 23,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 003: A",
+      "zk": 1,
+      "section": "",
+      "text_preview": "A\nAchtung\n62,1d24e5\nAnspruchsniveau\n28,10l5c3f\nAnonymität\n62,1d27b13\nÄrger\n57,4e7b1a35a11c\nArznei\n28,10f17n\nalter ego\n57,4e7b1,32i\nachievement / ascription\n83,1a15\nAlternativen\n60,4e54; 28,10f17j9\nAdä"
+    },
+    {
+      "ekin": "ZK_2_SW2d_149_V",
+      "out_degree": 23,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK II (Abt. 4. Schlagwortregister): Zettel 149: Wi (1)",
+      "zk": 2,
+      "section": "",
+      "text_preview": "Wi (1)\nWiderstand gegen Neuerungen\n54/3\nWiderstand, bürokratische\n532/4e60 (1)\nWissenschaft\n21/3a1pc17; 7/25b\nWiederholung\n31/3c8d\nWiderstandsrecht\n532/4e60d; 533/15z/b1A; 6/1n\nWille\n35/5j9a; 31/3a6,6"
+    },
+    {
+      "ekin": "ZK_2_SW1_024_R",
+      "out_degree": 23,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 024: N - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "natura humana\n52,8; 7,16e; 60,4d6c13\nNatur\n78,9\nNaturwissenschaft / Aktionswissenschaft\n60,3b7ah11\nNot (Versorgung von ...)\n19,8\nNachkonstruktion\n57,4e7b3c52\nNorm (s.o.)\n88,1d11; 84,1e; 62,1d24a10\nNat"
+    },
+    {
+      "ekin": "ZK_2_SW1_001_V",
+      "out_degree": 23,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 001: A",
+      "zk": 1,
+      "section": "",
+      "text_preview": "A\nAbstraktion\n33,1a12; 57,4e7b2; \nAls-Struktur\n57,4e7b; 29,12\nAllgemeine / konkrete Organisationslehre\n29,12a1\nAutonomie\n57,4f4\nAllgemeine Rechtsordnung / Organisationsrecht\n12,12\nArbeitsteilung\n44\nAu"
+    },
+    {
+      "ekin": "ZK_2_SW2d_109_V",
+      "out_degree": 23,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK II (Abt. 4. Schlagwortregister): Zettel 109: Rek – Rez (1)",
+      "zk": 2,
+      "section": "",
+      "text_preview": "Rek – Rez (1)\nRezeptivität\n352/14\nRepräsentation\n44/7; 35/5j9a10; 533/15c10f; 21/3d18d52c; 21/3d26g49\nRevolution\n4/2f; 21/7s3b1; 533/15z/e2; 7/25a39a; 7/25d8b1\nrepublica\n35/5g5-6\nRepression\n7/10m1; 53"
+    },
+    {
+      "ekin": "ZK_2_SW1_011_R",
+      "out_degree": 23,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 011: F - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Falschheit\n32,12b10; 83,2c3,12b40\nfactio\n33,2d1b\nFeld\n57,4e7b1e18\nFliessband\n83,2c8bA\nfringes\n57,4e7b1,27\nForm\n57,4e7b1e33\nfunktionell-spezifisch /funktionell-diffus\n83,1a11\nfallacy of misplaced concr"
+    },
+    {
+      "ekin": "ZK_2_SW1_034_V",
+      "out_degree": 23,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 034: S",
+      "zk": 1,
+      "section": "",
+      "text_preview": "suum cuique\n12,14g\nSituationsethik\n7,16g\nSynthese\n57,4e7b1e12; 57,4e7b3c52\nSehen – als Erkennen –\n57,2,2e\nSophistik\n32,8f12;\n57,2,2c3,1\nSinnlichkeit, Abwertung der\n...\n33,1da19b1\nStellvertretung\n60,9,"
+    },
+    {
+      "ekin": "ZK_2_SW1_031_V",
+      "out_degree": 22,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 031: R",
+      "zk": 1,
+      "section": "",
+      "text_preview": "R\nreference group\n83,2c3,13d25\nRekonstruktion\n57,4e7b3c52\nRealität\n57,4e7b4f17\nRegistrierungszwang\n72,3\nRelationismus\n17,17i11\nRhetorik\n57,2,2c3,2\nReligion\n100(5)\nReichweite\n17,1b29c\nRechtsmittel\n12,2"
+    },
+    {
+      "ekin": "ZK_2_SW1_004_R",
+      "out_degree": 22,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 004: B - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Blankowert\n60,9c20\n;\nBehaviorismus\n60,14b2; 57,1b2\nBetrieb\n83,2c1a8\nBewusstsein, falsches\n17,8b\nBegriffsrealismus\n57,4e7b3c7k\nBedingungen der Möglichkeit der Erfahrung\n57,4e7b1e27,1\nbonum (summum)\n7,2"
+    },
+    {
+      "ekin": "ZK_2_SW1_008_R",
+      "out_degree": 22,
+      "in_degree": 0,
+      "luhmann_number": "",
+      "title": "ZK I (Abt. Schlagwortregister): Zettel 008: E - Rückseite",
+      "zk": 1,
+      "section": "",
+      "text_preview": "Explikation\n83,2c2m12c\nExistenz\n57,3r3\nEnttäuschung\n62,1d26\nEgologie\n57,4e7b1,48e1\nEhre\n45,8c\nEignung\n44,13b1\nEkel\n101,7c1\nEreignis (event)\n57,2,30a; 57,4e7b3g61\nEtat\n28,10l3\nErreichbarkeit des Zwecke"
+    }
+  ],
+  "community_sizes": [
+    {
+      "id": 725,
+      "size": 56
+    },
+    {
+      "id": 729,
+      "size": 52
+    },
+    {
+      "id": 156,
+      "size": 49
+    },
+    {
+      "id": 236,
+      "size": 46
+    },
+    {
+      "id": 182,
+      "size": 44
+    },
+    {
+      "id": 110,
+      "size": 41
+    },
+    {
+      "id": 68,
+      "size": 38
+    },
+    {
+      "id": 810,
+      "size": 36
+    },
+    {
+      "id": 107,
+      "size": 33
+    },
+    {
+      "id": 1023,
+      "size": 33
+    },
+    {
+      "id": 256,
+      "size": 32
+    },
+    {
+      "id": 575,
+      "size": 32
+    },
+    {
+      "id": 734,
+      "size": 31
+    },
+    {
+      "id": 1041,
+      "size": 31
+    },
+    {
+      "id": 1067,
+      "size": 31
+    },
+    {
+      "id": 1262,
+      "size": 31
+    },
+    {
+      "id": 400,
+      "size": 30
+    },
+    {
+      "id": 2282,
+      "size": 29
+    },
+    {
+      "id": 67,
+      "size": 28
+    },
+    {
+      "id": 865,
+      "size": 28
+    },
+    {
+      "id": 543,
+      "size": 27
+    },
+    {
+      "id": 1712,
+      "size": 27
+    },
+    {
+      "id": 623,
+      "size": 26
+    },
+    {
+      "id": 959,
+      "size": 26
+    },
+    {
+      "id": 739,
+      "size": 25
+    },
+    {
+      "id": 1017,
+      "size": 25
+    },
+    {
+      "id": 1419,
+      "size": 25
+    },
+    {
+      "id": 2503,
+      "size": 25
+    },
+    {
+      "id": 171,
+      "size": 24
+    },
+    {
+      "id": 553,
+      "size": 24
+    },
+    {
+      "id": 757,
+      "size": 24
+    },
+    {
+      "id": 821,
+      "size": 24
+    },
+    {
+      "id": 1334,
+      "size": 24
+    },
+    {
+      "id": 1410,
+      "size": 24
+    },
+    {
+      "id": 2543,
+      "size": 24
+    },
+    {
+      "id": 4,
+      "size": 23
+    },
+    {
+      "id": 557,
+      "size": 23
+    },
+    {
+      "id": 852,
+      "size": 23
+    },
+    {
+      "id": 1125,
+      "size": 23
+    },
+    {
+      "id": 1802,
+      "size": 23
+    },
+    {
+      "id": 115,
+      "size": 22
+    },
+    {
+      "id": 124,
+      "size": 22
+    },
+    {
+      "id": 169,
+      "size": 22
+    },
+    {
+      "id": 479,
+      "size": 22
+    },
+    {
+      "id": 483,
+      "size": 22
+    },
+    {
+      "id": 671,
+      "size": 22
+    },
+    {
+      "id": 1653,
+      "size": 22
+    },
+    {
+      "id": 18,
+      "size": 21
+    },
+    {
+      "id": 157,
+      "size": 21
+    },
+    {
+      "id": 172,
+      "size": 21
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+images/
+output/transcriptions/
+.env
+__pycache__/
+*.pyc
+data/
+luhmann.db
+web/
+.DS_Store
