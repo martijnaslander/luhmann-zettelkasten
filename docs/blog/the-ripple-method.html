@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ripple Method — How Context Reads Context</title>
+<meta name="description" content="When AI can't read 45-year-old German handwriting, the surrounding cards can help. A method for transcribing archives by letting the network read itself.">
+<meta property="og:title" content="The Ripple Method — How Context Reads Context">
+<meta property="og:description" content="When AI can't read the handwriting, the network reads itself. CER from 139% to 27%.">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Georgia, serif; background: #0a0a0f; color: #c8c8c8; line-height: 1.9; }
+a { color: #6cf; text-decoration: none; }
+a:hover { text-decoration: underline; }
+nav { padding: 16px 24px; border-bottom: 1px solid #1a1a2e; }
+nav a { color: #888; font-size: 14px; font-family: -apple-system, sans-serif; }
+article { max-width: 780px; margin: 0 auto; padding: 60px 24px 80px; }
+h1 { font-size: 40px; font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 16px; letter-spacing: -1px; }
+.date { color: #666; font-size: 14px; margin-bottom: 40px; display: block; font-family: -apple-system, sans-serif; }
+h2 { font-size: 24px; color: #fff; margin: 48px 0 16px; font-weight: 600; }
+h3 { font-size: 19px; color: #ddd; margin: 32px 0 12px; font-weight: 600; }
+p { margin-bottom: 20px; font-size: 18px; color: #b8b8b8; }
+.stat { color: #6cf; font-weight: 600; }
+blockquote { font-size: 22px; font-style: italic; color: #fff; padding: 24px 28px; margin: 32px 0; border-left: 3px solid #6cf; background: #111118; border-radius: 0 6px 6px 0; line-height: 1.6; }
+.wave { background: #111118; border: 1px solid #1a1a2e; border-radius: 8px; padding: 24px; margin: 24px 0; }
+.wave h3 { margin-top: 0; color: #6cf; }
+.wave p { font-size: 16px; margin-bottom: 8px; }
+.wave p:last-child { margin-bottom: 0; }
+.comparison { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 16px; }
+.comparison th { text-align: left; padding: 10px 12px; color: #6cf; border-bottom: 1px solid #222; font-family: -apple-system, sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+.comparison td { padding: 10px 12px; border-bottom: 1px solid #1a1a2e; color: #b0b0b0; }
+.comparison td:first-child { color: #888; }
+.timeline { position: relative; padding-left: 28px; margin: 32px 0; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: #2a2a3a; }
+.timeline .step { position: relative; margin-bottom: 28px; }
+.timeline .step::before { content: ''; position: absolute; left: -24px; top: 8px; width: 12px; height: 12px; border-radius: 50%; background: #6cf; border: 2px solid #0a0a0f; }
+.timeline .step.fail::before { background: #f66; }
+.timeline .step.win::before { background: #6f6; }
+.step-label { font-size: 13px; color: #888; font-family: -apple-system, sans-serif; text-transform: uppercase; letter-spacing: 1px; }
+.cta-box { background: #111118; border: 1px solid #222; border-radius: 8px; padding: 24px; margin: 40px 0; text-align: center; }
+.cta-box a { display: inline-block; padding: 12px 28px; background: #1a3a5c; color: #6cf; border-radius: 6px; border: 1px solid #2a4a6c; font-weight: 600; font-family: -apple-system, sans-serif; margin: 4px; }
+.cta-box a:hover { text-decoration: none; background: #2a4a6c; }
+footer { text-align: center; padding: 40px; color: #555; font-size: 13px; font-family: -apple-system, sans-serif; }
+</style>
+</head>
+<body>
+
+<nav><a href="../">&larr; Back to project</a></nav>
+
+<article>
+
+<h1>The Ripple Method</h1>
+<h2 style="margin-top: 0; color: #888; font-weight: 400; font-size: 22px;">How Context Reads Context</h2>
+<span class="date">March 28, 2026 &middot; Martijn Aslander</span>
+
+<p>Niklas Luhmann wrote 90,000 note cards by hand over 45 years. Bielefeld University has been transcribing them since 2015 at a rate of 5 cards per hour. After 10 years, they're roughly one-third done.</p>
+
+<p>We tried to use AI to read the rest. It didn't work. Then we found something unexpected: the system reads itself.</p>
+
+<h2>The problem</h2>
+
+<p>30,493 cards in Luhmann's Zettelkasten have no transcribed text. They exist as scanned images of handwritten German &mdash; dense, abbreviated, with specialized vocabulary like "Aequivalenzfunktionalismus" and "Abweichungsverst&auml;rkung."</p>
+
+<p>We tried throwing AI at it. Here's what happened.</p>
+
+<h2>The journey</h2>
+
+<div class="timeline">
+
+<div class="step fail">
+<div class="step-label">Attempt 1 &mdash; Bare OCR</div>
+<p>Send the scan to Claude Vision. "Read this handwritten German text." Result: <span class="stat">163% Character Error Rate</span>. Worse than random. The model hallucinates German-sounding words that aren't there.</p>
+</div>
+
+<div class="step fail">
+<div class="step-label">Attempt 2 &mdash; Vocabulary constraint</div>
+<p>Give the model Luhmann's known vocabulary (2.4 million words from the already-transcribed cards) and say: "Only use words from this list." Result: <span class="stat">139% CER</span>. Slightly better, still unusable.</p>
+</div>
+
+<div class="step fail">
+<div class="step-label">Attempt 3 &mdash; Visual few-shot</div>
+<p>Send 3 already-transcribed cards as examples: "This is what Luhmann's handwriting looks like. Here's the correct reading. Now read this new card." Result: <span class="stat">149% CER</span>. Worse. The model gets confused by multiple images.</p>
+</div>
+
+<div class="step fail">
+<div class="step-label">Attempt 4 &mdash; Two-pass correction</div>
+<p>First pass: raw OCR. Second pass: correct unknown words using vocabulary matching. Result: the model hallucinated corrections, making things worse.</p>
+</div>
+
+<div class="step win">
+<div class="step-label">Attempt 5 &mdash; Semantic reconstruction</div>
+<p>Stop trying to read individual words. Instead, tell the model everything we know about the card: its number, its section, the text of all neighboring cards, and the topics they discuss. Then show the scan and say: "Given this context, what does this card say?"</p>
+<p>Result for card 21-3d5b11z: <span class="stat">27% CER</span>. From 163% to 27%. The card had 8 transcribed neighbors providing rich context.</p>
+</div>
+
+</div>
+
+<h2>What happened</h2>
+
+<p>The breakthrough wasn't in reading the handwriting better. It was in not needing to read every word.</p>
+
+<p>Card 21-3d5b11z sits in section 21 (Organisationstheorie). Its neighbors discuss Maruyama's theory of deviation amplification. Card 25/4b2m, which it references, discusses morphogenesis. The section is about the genesis of differentiation.</p>
+
+<p>Given all that context, the model doesn't need to decipher every letter. It reconstructs the meaning from the structure &mdash; and gets most of the words right in the process.</p>
+
+<blockquote>The system reads itself. Each card makes its neighbors more legible.</blockquote>
+
+<h2>The ripple method</h2>
+
+<p>This observation leads to a strategy:</p>
+
+<div class="wave">
+<h3>Wave 1: The inner ring</h3>
+<p>Start with untranscribed cards that have the <strong>most transcribed neighbors</strong> &mdash; cards surrounded by known context. These have the highest chance of accurate reconstruction. Perhaps 8-10 transcribed neighbors, rich section context, known cross-references.</p>
+</div>
+
+<div class="wave">
+<h3>Wave 2: The growing ring</h3>
+<p>The cards transcribed in Wave 1 <strong>become context for their own neighbors</strong>. Cards that were unreachable before now have transcribed cards next to them. The context grows. The ring expands.</p>
+</div>
+
+<div class="wave">
+<h3>Wave 3, 4, 5...</h3>
+<p>Each wave strengthens the next. The network fills in from the center outward, like a ripple on water. The last cards transcribed &mdash; the most isolated ones &mdash; have the least context and the lowest accuracy. But by then, most of the network is already mapped.</p>
+</div>
+
+<p>This is exactly how Luhmann built the system in the first place &mdash; from a core of interconnected cards outward, each new card drawing meaning from its position in the network.</p>
+
+<h2>The numbers</h2>
+
+<table class="comparison">
+<tr><th>Approach</th><th>CER</th><th>Context used</th></tr>
+<tr><td>Bare OCR</td><td style="color:#f66">163%</td><td>None</td></tr>
+<tr><td>Vocabulary constraint</td><td style="color:#f66">139%</td><td>Word list only</td></tr>
+<tr><td>Visual few-shot</td><td style="color:#f66">149%</td><td>3 example images</td></tr>
+<tr><td>Semantic reconstruction (rich context)</td><td style="color:#6f6">27%</td><td>8 neighbor cards + section + references</td></tr>
+</table>
+
+<p>The pattern is clear: the more network context you provide, the better the reading. Not linearly &mdash; there's a threshold. Below 3-4 neighbors, the context isn't rich enough. Above 6-8, it starts working dramatically better.</p>
+
+<h2>What this means beyond Luhmann</h2>
+
+<p>The ripple method isn't specific to Luhmann's archive. It applies to any collection where:</p>
+
+<p>&bull; Items are partially legible or partially transcribed<br>
+&bull; Items are connected to each other (references, links, proximity)<br>
+&bull; Context narrows the space of possible interpretations</p>
+
+<p>Historical archives, medieval manuscripts, personal correspondence, even degraded digital files &mdash; anywhere that items exist in a network rather than in isolation, context can fill the gaps.</p>
+
+<h3>The deeper principle</h3>
+
+<p>This connects to something I've been building in my own knowledge system (<a href="https://world.hey.com/martijnaslander/i-think-i-ve-built-a-mythical-machine-cac6597f">ThetaOS</a>): the idea that connections compound. Each new link doesn't just connect two nodes &mdash; it strengthens every adjacent connection. I call this myelination, borrowing from neuroscience: the more a pathway is used, the faster and more reliable it becomes.</p>
+
+<p>Luhmann's archive is proof of concept. The network structure he built in 1952 is helping us read his handwriting in 2026. Not through magic &mdash; through context. Through the accumulated weight of 45 years of cross-references making each card's meaning recoverable from its position in the web.</p>
+
+<blockquote>Luhmann called his Zettelkasten a "communication partner." Seventy years later, it's still communicating &mdash; helping us read what he wrote by showing us where he placed it.</blockquote>
+
+<h2>Status</h2>
+
+<p>The ripple method is currently in testing. We've validated it on 10 ground-truth cards with promising results on high-context cards and predictably poor results on isolated ones. A full run on the 30,493 untranscribed cards would cost approximately $200-600 depending on the resolution and number of waves.</p>
+
+<p>This is ongoing work. If you're interested in the approach &mdash; especially if you work on digital humanities, archival transcription, or handwriting recognition &mdash; the code is <a href="https://github.com/martijnaslander/luhmann-zettelkasten">open source</a>.</p>
+
+<div class="cta-box">
+    <a href="../explorer/">Explore the Network</a>
+    <a href="lessons-for-knowledge-systems.html">8 Lessons for Knowledge Systems</a>
+</div>
+
+</article>
+
+<footer>
+    Data: <a href="https://niklas-luhmann-archiv.de">Niklas Luhmann-Archiv</a>, Universit&auml;t Bielefeld (CC-BY-NC-SA 4.0)<br>
+    By Martijn Aslander + Claude &middot; March 2026 &middot; <a href="../">Back to project</a>
+</footer>
+
+<script data-goatcounter="https://luhmann-brain.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
