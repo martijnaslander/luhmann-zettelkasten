@@ -6,8 +6,13 @@
 <title>Mapping Luhmann's Brain — Martijn Aslander</title>
 <meta name="description" content="The first complete network map of Niklas Luhmann's 73,715-card Zettelkasten. 45 years of thinking, mapped in one day.">
 <meta property="og:title" content="Mapping Luhmann's Brain">
-<meta property="og:description" content="The first complete network map of Niklas Luhmann's Zettelkasten. 73,715 cards. 45 years. One day.">
+<meta property="og:description" content="Someone sent me a link to a €5M, 15-year archive project. I wondered: why does this take so long? 73,715 cards mapped in under 2 hours.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://martijnaslander.github.io/luhmann-zettelkasten/og-image.png">
+<meta property="og:url" content="https://martijnaslander.github.io/luhmann-zettelkasten/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Mapping Luhmann's Brain">
+<meta name="twitter:description" content="Someone sent me a link to a €5M, 15-year archive project. I wondered: why does this take so long? 73,715 cards mapped in under 2 hours.">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -19,7 +24,7 @@ body {
 a { color: #6cf; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-.container { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
 
 /* Hero */
 header {
@@ -28,14 +33,14 @@ header {
     border-bottom: 1px solid #1a1a2e;
 }
 header h1 {
-    font-size: 42px;
+    font-size: 48px;
     font-weight: 700;
     color: #fff;
     letter-spacing: -1px;
     margin-bottom: 12px;
 }
 header .subtitle {
-    font-size: 18px;
+    font-size: 20px;
     color: #888;
     max-width: 540px;
     margin: 0 auto 32px;
@@ -81,14 +86,16 @@ section {
     border-bottom: 1px solid #1a1a2e;
 }
 section h2 {
-    font-size: 22px;
+    font-size: 26px;
     color: #fff;
-    margin-bottom: 16px;
+    margin-bottom: 20px;
     font-weight: 600;
 }
 section p {
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     color: #b0b0b0;
+    font-size: 17px;
+    line-height: 1.8;
 }
 
 /* Cards grid */
@@ -134,6 +141,14 @@ section p {
     display: flex;
     gap: 24px;
     align-items: flex-start;
+}
+.bio-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #222;
+    flex-shrink: 0;
 }
 .bio-text { flex: 1; }
 .bio-text .name {
@@ -206,27 +221,32 @@ footer a { color: #888; }
 <header>
     <div class="container">
         <h1>Mapping Luhmann's Brain</h1>
-        <p class="subtitle">The first complete network map of the most famous knowledge system in history. Built in under 2 hours.</p>
+        <p class="subtitle"><a href="https://substack.com/@ariakhodaverdi" target="_blank" style="color:#6cf">Aria Khodaverdi</a> sent me a link to the Niklas Luhmann Archive &mdash; a &euro;5 million, 15-year project to digitize 90,000 handwritten note cards. I looked at it and wondered: why does this have to take so long? This is what happened in under two hours.</p>
         <div class="hero-stats">
             <div class="stat"><span class="num">73,715</span><span class="label">Cards</span></div>
             <div class="stat"><span class="num">45</span><span class="label">Years</span></div>
             <div class="stat"><span class="num">&lt;2</span><span class="label">Hours</span></div>
         </div>
         <a href="explorer/" class="cta">Explore the Network</a>
+        <p style="margin-top: 12px; color: #555; font-size: 13px;">Click any node. Follow the cross-references. Get lost in 45 years of thinking.</p>
     </div>
 </header>
 
 <div class="container">
 
+<blockquote style="font-size: 28px; font-weight: 300; color: #fff; font-style: italic; text-align: center; padding: 40px 20px; margin: 0 0 20px; border: none; line-height: 1.5; letter-spacing: -0.5px;">
+    &ldquo;In 70 years of Luhmann scholarship, nobody drew the map.&rdquo;
+</blockquote>
+
 <section>
     <h2>What is this?</h2>
     <p>Niklas Luhmann (1927-1998) was one of the most productive social scientists in history: 70 books, 400+ articles. His secret weapon was a system of 90,000 handwritten note cards &mdash; the Zettelkasten &mdash; connected through tens of thousands of cross-references. It's the most famous example of networked thinking ever built.</p>
     <p>Bielefeld University has been digitizing and transcribing this archive since 2015, funded with &euro;5 million, planned through 2030. Two scholars transcribe cards at 5 per hour. After 10 years, they're roughly one-third done.</p>
-    <p>We asked a different question. Not "how do we read every card?" but <strong>"how do we see the network?"</strong></p>
-    <p>Using the archive's own open API, we downloaded all 73,715 indexed cards, extracted the cross-reference network, and built the first-ever complete structural map of Luhmann's thinking.</p>
+    <p>I wondered: what if you asked a different question? Not "how do we read every card?" but <strong>"how do we see the network?"</strong></p>
+    <p>Using the archive's own open API, I downloaded all 73,715 indexed cards, extracted the cross-reference network, and built what appears to be the first complete structural map of Luhmann's thinking.</p>
 
     <div class="context-block">
-        <p>This project doesn't compete with the academic edition. They're building a monument &mdash; every letter verified, every reference checked. That work matters. We're building something they haven't built: <strong>the bird's-eye view</strong>.</p>
+        <p><strong>A note on method:</strong> I'm not a scientist. I'm a PKM researcher who wanted to see how far one person with AI could get in a single session. No recognized scientific methodology has been applied to this work. This is an exploration, not a peer-reviewed study. The academic edition at Bielefeld &mdash; every letter verified, every reference checked &mdash; is the scholarly standard. This project builds something they haven't built: <strong>the bird's-eye view</strong>.</p>
     </div>
 </section>
 
@@ -243,7 +263,21 @@ footer a { color: #888; }
 </section>
 
 <section>
-    <h2>Read more</h2>
+    <h2>Findings</h2>
+    <div class="cards">
+        <a href="blog/preliminary-findings.html" class="card">
+            <h3>50 Things Nobody Knew About Luhmann's Zettelkasten</h3>
+            <p>The first network analysis reveals surprises that 70 years of scholarship missed.</p>
+            <span class="tag">Findings</span>
+        </a>
+        <a href="blog/what-happens-next.html" class="card">
+            <h3>What Happens When You Have All 90,000 Cards</h3>
+            <p>We mapped 58%. Here's what becomes possible with the rest.</p>
+            <span class="tag">Next</span>
+        </a>
+    </div>
+
+    <h2 style="margin-top:48px;">Background reading</h2>
     <div class="cards">
         <a href="https://world.hey.com/martijnaslander/i-think-i-ve-built-a-mythical-machine-cac6597f" class="card" target="_blank">
             <h3>I Think I've Built a Mythical Machine</h3>
@@ -271,6 +305,7 @@ footer a { color: #888; }
 <section>
     <h2>About</h2>
     <div class="bio">
+        <img src="martijn.jpg" alt="Martijn Aslander" class="bio-photo">
         <div class="bio-text">
             <div class="name">Martijn Aslander</div>
             <p>Independent thinker and builder. Creator of <strong>ThetaOS</strong>, a Life Lens System (LLS) &mdash; what emerges when you move beyond PKM by adding more elements: relations, context, time, confirmation. Powered by LLM, with 339 tables, 91,000+ records and 2.5 million words of structured content. This Luhmann project is a proof of concept for AI-augmented knowledge cartography.</p>
@@ -291,6 +326,18 @@ footer a { color: #888; }
     <p>Everything is open source. <a href="https://github.com/martijnaslander/luhmann-zettelkasten">View the repository on GitHub.</a></p>
 </section>
 
+<section>
+    <h2>Limitations</h2>
+    <p>This project maps the <em>structure</em> of Luhmann's thinking, not the <em>content</em>. Important caveats:</p>
+    <ul style="margin: 12px 0; padding-left: 20px; color: #999; line-height: 2;">
+        <li>The network is based on cross-reference numbers extracted from transcription previews &mdash; not from verified TEI-XML sources.</li>
+        <li>Only 43,222 of 73,715 cards have transcribed text. The remaining 41% await transcription.</li>
+        <li>The visualization shows the top 5,000 most-connected cards, not all 73,715.</li>
+        <li>No semantic analysis has been performed &mdash; we see which cards link to each other, not why.</li>
+        <li>This is not a substitute for scholarly engagement with the archive. Read the cards, not just the map.</li>
+    </ul>
+</section>
+
 </div>
 
 <footer>
@@ -300,5 +347,6 @@ footer a { color: #888; }
     </div>
 </footer>
 
+<script data-goatcounter="https://luhmann-brain.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>

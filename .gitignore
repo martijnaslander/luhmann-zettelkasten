@@ -3,7 +3,7 @@ output/transcriptions/
 .env
 __pycache__/
 *.pyc
-data/
+/data/
 luhmann.db
 web/
 .DS_Store
