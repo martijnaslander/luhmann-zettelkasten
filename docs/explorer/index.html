@@ -80,7 +80,22 @@ canvas { display: block; }
 
 #loading {
     position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    z-index: 100; text-align: center; color: #6cf; font-size: 16px;
+    z-index: 100; text-align: center; color: #6cf; font-size: 18px;
+}
+#loading .spinner {
+    width: 40px; height: 40px; margin: 0 auto 16px;
+    border: 3px solid #222; border-top: 3px solid #6cf;
+    border-radius: 50%; animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+#loading .progress {
+    margin-top: 12px; font-size: 13px; color: #666;
+}
+#loading .bar-bg {
+    width: 240px; height: 4px; background: #222; border-radius: 2px; margin: 8px auto 0;
+}
+#loading .bar-fill {
+    height: 100%; background: #6cf; border-radius: 2px; width: 0%; transition: width 0.3s;
 }
 </style>
 </head>
@@ -141,7 +156,12 @@ canvas { display: block; }
     By Martijn Aslander + Claude
 </div>
 
-<div id="loading">Loading Luhmann's brain...</div>
+<div id="loading">
+    <div class="spinner"></div>
+    Loading Luhmann's brain...
+    <div class="progress" id="load-status">Fetching network data...</div>
+    <div class="bar-bg"><div class="bar-fill" id="load-bar"></div></div>
+</div>
 
 <script>
 const SECTION_COLORS = {
@@ -165,13 +185,21 @@ async function init() {
     resize();
     window.addEventListener('resize', resize);
 
-    // Load data
-    const [nodesData, edgesData, statsData, cardsData] = await Promise.all([
-        fetch('data/vis_nodes.json').then(r => r.json()),
-        fetch('data/vis_edges.json').then(r => r.json()),
-        fetch('data/network_stats.json').then(r => r.json()),
-        fetch('data/search_index.json').then(r => r.json()).catch(() => [])
-    ]);
+    // Load data with progress
+    function progress(msg, pct) {
+        document.getElementById('load-status').textContent = msg;
+        document.getElementById('load-bar').style.width = pct + '%';
+    }
+
+    progress('Loading network nodes...', 10);
+    const nodesData = await fetch('data/vis_nodes.json').then(r => r.json());
+    progress('Loading network edges...', 25);
+    const edgesData = await fetch('data/vis_edges.json').then(r => r.json());
+    progress('Loading statistics...', 40);
+    const statsData = await fetch('data/network_stats.json').then(r => r.json());
+    progress('Loading search index (43,222 cards)...', 55);
+    const cardsData = await fetch('data/search_index.json').then(r => r.json()).catch(() => []);
+    progress('Building network layout...', 70);
 
     allCards = cardsData;
 
