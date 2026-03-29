@@ -416,6 +416,30 @@ footer a { color: #888; }
 </section>
 
 <section>
+    <h2>Updates</h2>
+    <div style="border-left: 2px solid #2a2a3a; padding-left: 20px; margin-bottom: 24px;">
+
+        <p style="margin-bottom: 4px;"><strong style="color: #6cf;">March 29, 2026</strong></p>
+        <ul style="margin: 0 0 24px; padding-left: 20px; color: #999; line-height: 2; font-size: 16px;">
+            <li>Reference count updated from 18,289 to <strong style="color:#e0e0e0">59,773</strong> after fetching complete HTML for all 73,715 cards via the individual card API. The original count was based on truncated preview text.</li>
+            <li>References now separated into three types: 33,650 Fernverweise (cross-section), 14,389 neighbourhood links, 11,182 unclassified. Thanks to <strong style="color:#e0e0e0">Ton Zijlstra</strong> for identifying the truncation issue and the three-layer link structure.</li>
+            <li>Explorer rebuilt with color-coded edges: blue = Fernverweise, orange = cross-ZK, green = neighbourhood.</li>
+            <li>New blog post: <a href="blog/machine-reads-luhmann.html">Building a Machine That Reads Luhmann's Handwriting Good Enough</a> &mdash; AI transcription pipeline achieving 15.6% CER across 200 test cards.</li>
+            <li>AI transcription of all 30,453 untranscribed cards is running &mdash; expected to complete March 30.</li>
+            <li>Corrected explanation of the missing ~16,000 cards (bibliographic sections, not blank cards).</li>
+            <li>"Isolated cards" clarified: 23% have no cross-references beyond their branch, but are structurally positioned in the Folgezettel tree.</li>
+            <li>Tone revised across the site based on feedback from <strong style="color:#e0e0e0">Aria Khodaverdi</strong>: less boasting, more humility.</li>
+        </ul>
+
+        <p style="margin-bottom: 4px;"><strong style="color: #6cf;">March 28, 2026</strong></p>
+        <ul style="margin: 0 0 24px; padding-left: 20px; color: #999; line-height: 2; font-size: 16px;">
+            <li>Initial release: 73,715 cards downloaded, network explorer launched, six blog posts published.</li>
+        </ul>
+
+    </div>
+</section>
+
+<section>
     <h2>Technical details</h2>
     <p>The data comes from the <a href="https://niklas-luhmann-archiv.de" target="_blank">Niklas Luhmann-Archiv</a> at Bielefeld University, licensed under <strong>CC BY-SA 4.0</strong>. The archive provides a search API that returns card metadata and transcription previews as JSON, and individual cards as TEI-XML.</p>
     <p>The download script makes 9 API calls with paginated requests of 10,000 results each. The network is extracted by parsing Luhmann's cross-reference notation from the transcription data. The visualization uses canvas-based rendering with force-directed layout.</p>
