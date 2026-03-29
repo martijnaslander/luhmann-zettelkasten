@@ -250,7 +250,7 @@ footer a { color: #888; }
     <p>Niklas Luhmann (1927-1998) was one of the most productive social scientists in history: more than 50 books and 550 articles. His secret weapon was a system of 90,000 handwritten note cards &mdash; the Zettelkasten &mdash; connected through tens of thousands of cross-references. It's the most famous example of networked thinking ever built.</p>
     <p>Bielefeld University has been digitizing and transcribing this archive since 2015, funded with &euro;5 million, planned through 2030. Their team transcribes and verifies cards by hand &mdash; scholarly edition quality. That work is essential and ongoing.</p>
     <p>Bielefeld's work focuses on reading every card correctly. But the cross-references &mdash; tens of thousands of them &mdash; hadn't been analysed as a network. What if you asked a complementary question? Not "how do we read every card?" but <strong>"how do we see the network?"</strong></p>
-    <p>Using the archive's own open API, I downloaded all 73,715 indexed cards, extracted 18,289 creative cross-references, and built what appears to be the first complete structural map of Luhmann's thinking. What I found: the center of his thinking isn't where you'd expect, 23% of his cards have no cross-references beyond their own branch, and the system helps read itself when you treat it as a network instead of an archive.</p>
+    <p>Using the archive's own open API, I downloaded all 73,715 indexed cards, extracted 59,773 references from the full HTML transcriptions of all 73,715 cards &mdash; including 33,650 cross-section references and 14,389 neighbourhood links &mdash; and built what appears to be the first complete structural map of Luhmann's thinking. What I found: the center of his thinking isn't where you'd expect, 23% of his cards have no cross-references beyond their own branch, and the system helps read itself when you treat it as a network instead of an archive.</p>
 
     <h3 style="font-size: 18px; color: #fff; margin: 32px 0 16px;">Two complementary approaches</h3>
     <table style="width:100%; border-collapse: collapse; font-size: 15px; margin-bottom: 24px;">
@@ -300,7 +300,7 @@ footer a { color: #888; }
     <h2>The numbers</h2>
     <div class="numbers">
         <div class="n"><span class="val">73,715</span><span class="lbl">Cards</span></div>
-        <div class="n"><span class="val">82,462</span><span class="lbl">References</span></div>
+        <div class="n"><span class="val">59,773</span><span class="lbl">References</span></div>
         <div class="n"><span class="val">27</span><span class="lbl">Drawers</span></div>
         <div class="n"><span class="val">1952-97</span><span class="lbl">Span</span></div>
     </div>
@@ -410,6 +410,12 @@ footer a { color: #888; }
 </section>
 
 <section>
+    <h2>What's happening now</h2>
+    <p>The reference count has been updated from 18,289 to <strong>59,773</strong> after fetching the complete HTML for all 73,715 cards via the individual card API. The original count was based on truncated preview text. The full transcriptions &mdash; available for 43,262 of 73,715 cards &mdash; reveal a network 3.3&times; denser than first reported. References are now separated into three types: 33,650 cross-section references (Fernverweise), 14,389 neighbourhood links, and 11,182 unclassified. The remaining 30,453 cards await transcription and will add more references once readable.</p>
+    <p>In parallel, we're running an <a href="blog/machine-reads-luhmann.html">AI transcription pipeline</a> that reads the handwritten scans of those 30,453 untranscribed cards, achieving 15.6% character error rate using Gemini's vision models. The full run is expected to complete by March 30, 2026. This will produce a searchable, confidence-scored version of every card &mdash; not replacing Bielefeld's scholarly edition, but supplementing it with broad coverage.</p>
+</section>
+
+<section>
     <h2>Technical details</h2>
     <p>The data comes from the <a href="https://niklas-luhmann-archiv.de" target="_blank">Niklas Luhmann-Archiv</a> at Bielefeld University, licensed under <strong>CC BY-SA 4.0</strong>. The archive provides a search API that returns card metadata and transcription previews as JSON, and individual cards as TEI-XML.</p>
     <p>The download script makes 9 API calls with paginated requests of 10,000 results each. The network is extracted by parsing Luhmann's cross-reference notation from the transcription data. The visualization uses canvas-based rendering with force-directed layout.</p>
@@ -420,8 +426,7 @@ footer a { color: #888; }
     <h2>Limitations</h2>
     <p>This project maps the <em>structure</em> of Luhmann's thinking, not the <em>content</em>. Important caveats:</p>
     <ul style="margin: 12px 0; padding-left: 20px; color: #999; line-height: 2;">
-        <li>The network is based on cross-reference numbers extracted from transcription previews &mdash; not from verified TEI-XML sources.</li>
-        <li>Only 43,222 of 73,715 cards have transcribed text. The remaining 41% await transcription.</li>
+        <li>The 59,773 references are extracted from the full HTML transcriptions of 43,262 cards. The remaining 30,453 cards have no transcription yet &mdash; references from those will be added as transcriptions become available.</li>
         <li>The visualization shows the top 2,000 most-connected cards, not all 73,715.</li>
         <li>No semantic analysis has been performed &mdash; we see which cards link to each other, not why.</li>
         <li>This is not a substitute for scholarly engagement with the archive. Read the cards, not just the map.</li>
