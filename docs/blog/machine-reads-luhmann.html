@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learnings from Building a Machine That Reads Luhmann's Handwriting Good Enough</title>
+<meta name="description" content="Six AI models, 73,715 handwritten cards, one day. What happens when you stop aiming for perfection and start aiming for useful.">
+<meta property="og:title" content="Learnings from Building a Machine That Reads Luhmann's Handwriting Good Enough">
+<meta property="og:description" content="Six AI models, 73,715 handwritten cards, one day. 15.6% error rate. Here's what I learned.">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Georgia, 'Times New Roman', serif; background: #0a0a0f; color: #c8c8c8; line-height: 1.9; }
+a { color: #6cf; text-decoration: none; }
+a:hover { text-decoration: underline; }
+nav { padding: 16px 24px; border-bottom: 1px solid #1a1a2e; font-family: -apple-system, sans-serif; }
+nav a { color: #888; font-size: 14px; }
+article { max-width: 780px; margin: 0 auto; padding: 60px 24px 80px; }
+h1 { font-family: -apple-system, sans-serif; font-size: 40px; font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 16px; letter-spacing: -1px; }
+.date { color: #666; font-size: 14px; margin-bottom: 40px; display: block; font-family: -apple-system, sans-serif; }
+h2 { font-family: -apple-system, sans-serif; font-size: 24px; color: #fff; margin: 48px 0 16px; font-weight: 600; }
+p { margin-bottom: 20px; font-size: 19px; color: #b8b8b8; }
+blockquote { font-size: 22px; font-style: italic; color: #fff; padding: 24px 28px; margin: 32px 0; border-left: 3px solid #6cf; background: #111118; border-radius: 0 6px 6px 0; line-height: 1.6; }
+table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 16px; }
+th { text-align: left; padding: 10px 12px; color: #6cf; border-bottom: 1px solid #222; font-family: -apple-system, sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+td { padding: 10px 12px; border-bottom: 1px solid #1a1a2e; color: #b0b0b0; }
+hr { border: none; border-top: 1px solid #1a1a2e; margin: 48px 0; }
+ul { margin: 16px 0 24px; padding-left: 24px; }
+li { margin-bottom: 8px; font-size: 18px; color: #b8b8b8; }
+li strong { color: #e0e0e0; }
+.cta-box { background: #111118; border: 1px solid #222; border-radius: 8px; padding: 24px; margin: 40px 0; text-align: center; }
+.cta-box a { display: inline-block; padding: 12px 28px; background: #1a3a5c; color: #6cf; border-radius: 6px; border: 1px solid #2a4a6c; font-weight: 600; font-family: -apple-system, sans-serif; margin: 4px; }
+.cta-box a:hover { text-decoration: none; background: #2a4a6c; }
+footer { text-align: center; padding: 40px; color: #555; font-size: 13px; font-family: -apple-system, sans-serif; }
+</style>
+</head>
+<body>
+
+<nav><a href="../">&larr; Back to project</a></nav>
+
+<article>
+
+<h1>Learnings from Building a Machine That Reads Luhmann's Handwriting Good Enough</h1>
+<span class="date">March 29, 2026 &middot; Martijn Aslander</span>
+
+<img src="machine-reads-hero.png" alt="Building a machine that reads Luhmann's handwriting" style="width: 100%; border-radius: 8px; margin-bottom: 32px; border: 1px solid #222;">
+
+<p>Niklas Luhmann left behind 90,000 handwritten index cards. For eleven years, a team of scholars at the University of Bielefeld has been transcribing them by hand &mdash; card by card, word by word, with the kind of patience and precision that defines serious academic work. They're about a third done. The project runs until 2030. At the current pace, that deadline looks ambitious.</p>
+
+<p>I'm not a scientist. As the founder of <a href="https://www.digitalefitheidacademie.nl">Digital Fitness</a> and the <a href="https://pkmsummit.com">European PKM Summit</a>, I've met more Zettelkasten enthusiasts than I can count. I've watched people buy every book on Luhmann's method, set up elaborate card systems, debate the philosophy of linking. I'm a newbie in that world. But a well-connected newbie with shiny new tools and a very deep desire to uncover things just out of curiosity.</p>
+
+<p>Seth Godin wrote something I keep coming back to: <a href="https://seths.blog/2026/02/more-trouble-than-its-worth-2/">the hallmark of projects that turn out to be worth doing is that they're more trouble than they're worth</a>. The things that are obviously worth doing are probably already being done.</p>
+
+<p>Transcribing 90,000 handwritten cards by hand for fifteen years: obviously worth doing, already being done. Asking whether a curious outsider with AI tools could get 80% of the way there in a single day: more trouble than it's worth. My kind of project.</p>
+
+<p>The scholars asked: how do we transcribe every card correctly? That's the right question if you need a publication-grade archive. But I started wondering: what if correct isn't the only useful target? What if you approached this through abductive reasoning &mdash; not &ldquo;what is the perfect answer&rdquo; but &ldquo;what's the most useful conclusion I can reach with the evidence I have&rdquo;?</p>
+
+<p>What if you don't need 100% of the cards at 100% accuracy to get 95% of the value? What if 80% accuracy across all 73,715 cards, delivered in a single day, is more useful to more researchers than 100% accuracy on 30,000 cards delivered in 2030?</p>
+
+<p>And here's the thing: no archive is 100% accurate anyway. Bielefeld's manual transcriptions contain errors too &mdash; I found disagreements. The question was never perfection versus imperfection. Every transcription project trades speed for accuracy somewhere. The real question is whether researchers are better off with a searchable, confidence-scored, imperfect version of all 73,715 cards &mdash; or with nothing at all for 47,000 of them.</p>
+
+<p>That reframe changes everything. So I tried it.</p>
+
+<hr>
+
+<h2>The problem nobody could solve</h2>
+
+<p>Luhmann wrote from 1951 until his death in 1998. Everything by hand, in German, in a handwriting that got harder to read as the decades passed. They're about a third done.</p>
+
+<p>So I asked: what happens if you just hand a photo of a card to an AI model and say &ldquo;read this&rdquo;?</p>
+
+<p>You get garbage. The model recognizes it's German, recognizes it's handwriting, and then confidently invents words that aren't there. Where Luhmann wrote &ldquo;Innenhorizont,&rdquo; the model reads &ldquo;Zunehmend ordnen.&rdquo; Plausible-sounding nonsense.</p>
+
+<p>My starting error rate: 163%. More errors than letters on the card.</p>
+
+<hr>
+
+<h2>The first insight: the cards know each other</h2>
+
+<p>Here's the thing about Luhmann's archive that most people miss. The cards don't stand alone. They reference each other &mdash; tens of thousands of cross-references. Card 21/3d points to 52/4b, which points to 28/10f. It's a knowledge graph built by hand over 46 years.</p>
+
+<p>That gave me an idea. If I know what a card's neighbors are about &mdash; because those neighbors have already been transcribed &mdash; I can give that context to the AI. It no longer has to read every word perfectly. It can reconstruct meaning from context.</p>
+
+<p>I called this the ripple method. Start with the cards that have the most already-transcribed neighbors. Use those neighbors as context. Every card you transcribe becomes context for its own neighbors. The ring expands outward, like a ripple in water.</p>
+
+<p>It works. Cards transcribed with neighbor context scored 2.7 percentage points better than cards transcribed without it. A skeptic might call that noise. But that's missing the deeper point.</p>
+
+<p>A card isn't a standalone document. It's a node in a network. Even if a transcription is imperfect, the neighbors tell you what topic to expect, which concepts are likely, which other cards it cites. A word you can't quite read on card X but that appears on three neighboring cards is no longer a mystery &mdash; the network fills the gap. The more cards are transcribed, the smaller those gaps get.</p>
+
+<p>This also means every transcription comes with a built-in confidence signal. Cards with many transcribed neighbors have more context to draw from &mdash; they're inherently more reliable than cards that sit at the edge of the network with few connections. You know which is which before you use them. That's not a 2.7 percentage point improvement. That's a map of where to trust the archive and where to verify.</p>
+
+<hr>
+
+<h2>The second insight: model choice matters more than anything else</h2>
+
+<p>I tested six AI models on the same ten cards. Five produced usable results &mdash; two failed on quota issues before completing. Same photos, same instructions, same context. The results were not what I expected:</p>
+
+<table>
+<tr><th>Model</th><th>Error rate</th></tr>
+<tr><td>Claude Haiku (Anthropic)</td><td style="color:#f88">34.8%</td></tr>
+<tr><td>Claude Sonnet (Anthropic)</td><td style="color:#f88">27.5%</td></tr>
+<tr><td>Claude Opus (Anthropic, most expensive)</td><td style="color:#f88">28.4%</td></tr>
+<tr><td>Gemini 2.5 Flash (Google)</td><td style="color:#6f6">15.3%</td></tr>
+<tr><td>Gemini 2.5 Pro (Google)</td><td style="color:#6f6">14.8%</td></tr>
+</table>
+
+<p>Gemini reads handwriting almost twice as accurately as Claude. And the cheap Flash model is nearly as good as the expensive Pro model. I tried three different prompt strategies to close the gap with Claude. None of them came close.</p>
+
+<p>The lesson I took from this: picking the right model matters more than any clever prompting. Don't optimize your way out of a bad model choice.</p>
+
+<hr>
+
+<h2>The third insight: I was measuring wrong</h2>
+
+<p>My early results showed 32% error rate. Disappointing. But when I looked more carefully, I found the problem: Bielefeld's reference transcriptions are full of invisible Unicode characters &mdash; hair spaces you can't see but that count as errors in the measurement. There were 250,751 of them across 70,524 cards. Once I corrected my measurement method, the real error rate was 15.6%. Nearly half what I thought.</p>
+
+<p>This is the kind of thing you only find by testing thoroughly and questioning your own numbers. I would have drawn the wrong conclusions if I'd stopped at the first measurement. The willingness to recheck your own assumptions is what separates a useful result from a confident mistake.</p>
+
+<hr>
+
+<h2>The fourth insight: three readers are better than one</h2>
+
+<p>Once the pipeline was working, I tried something: instead of reading each card once, read it three times independently and let the results vote. Where all three agree, you can trust it. Where two agree and one differs, take the majority. Where all three disagree, flag it as uncertain.</p>
+
+<p>The logic is simple: hallucinations are random. The same mistake three times in a row is unlikely. Consensus is a signal.</p>
+
+<p>Early results show a consistent improvement in accuracy, and more importantly, something more valuable than a lower error rate: a confidence score per word. The places where all three readings agree are the places you can rely on. The places where they diverge are the places a human should check.</p>
+
+<p>I also tested how many parallel workers to run. The sweet spot turned out to be 20 &mdash; beyond that, Google's servers start to slow down rather than speed up. At 20 parallel workers, the full archive runs in roughly 46 hours for a single pass.</p>
+
+<hr>
+
+<h2>What I ended up with</h2>
+
+<p>A tested, reliable pipeline that:</p>
+
+<ul>
+<li>Processes all 73,715 cards from scans of Luhmann's handwriting</li>
+<li>Achieves 15.6% average character error rate across 200 tested cards</li>
+<li>Delivers 71% of cards under 20% error &mdash; usable for research</li>
+<li>Has zero total failures, thanks to automatic retries</li>
+<li>Runs in roughly 46 hours at 20 parallel workers</li>
+<li>Costs nothing if you already have an API subscription &mdash; around $221 if you don't</li>
+</ul>
+
+<p>To put the error rate in plain terms: of every 100 characters, roughly 84-85 are correct. On a card of 200 characters, that's about 30 wrong letters. Enough to understand the meaning and search the text. Not enough for scientific publication.</p>
+
+<hr>
+
+<h2>A cognitive aid for the transcribing experts</h2>
+
+<p>Reading Luhmann's handwriting cold &mdash; picking up a card you've never seen and deciphering it from scratch &mdash; is genuinely hard. Even experienced transcribers have to work at it. But the human brain is much faster at recognizing and confirming than at retrieving from nothing. If the AI already suggests &ldquo;this word is probably <em>Innenhorizont</em>,&rdquo; the expert just needs to check whether that's right. That's a multiple choice question instead of an open one. Same expertise required, but ten times faster. The better my pipeline gets &mdash; and it gets better with every card transcribed &mdash; the more useful that suggestion becomes.</p>
+
+<p><strong>For Luhmann researchers:</strong> every scholar working with the archive will soon have access to a searchable version of all 73,715 cards. Not perfect, but usable. That changes what's possible.</p>
+
+<p><strong>For error detection:</strong> by comparing my transcriptions to Bielefeld's, I can flag cards where we disagree in places where my error rate is low. Sometimes I'm wrong. Sometimes they're wrong. Either way, it gives experts a targeted checklist instead of 90,000 cards to recheck.</p>
+
+<p><strong>For anyone working with archives:</strong> the method &mdash; using the document network as reading aid, choosing the right model by measuring, expanding outward from what's already known &mdash; works for any archive where documents reference each other. Medieval manuscripts, personal correspondence, historical collections.</p>
+
+<p><strong>For the cost argument:</strong> an eleven-year project, supplemented by a single day of work and one night of compute. Not replaced. Supplemented. The experts do the precise work. The machine does the broad work. Together you go faster.</p>
+
+<p>A fair objection: what about your time? The first working version took two hours. The benchmarking ran overnight while I slept &mdash; on a Mac Mini, not on my time. Yes, I iterated. But the iteration was curiosity, not labor. I wasn't billing anyone. My own API costs were covered by an existing subscription &mdash; zero out of pocket. If you're starting from scratch, the estimated API cost is around $221. Either way, with all my mistakes already made for you, that's what it costs you to run this tomorrow.</p>
+
+<hr>
+
+<blockquote>The thing people kept saying was that you couldn't use AI on Luhmann's handwriting. Too messy, too idiosyncratic, too hard. They were right that you can't just ask a model to read a card. They were wrong that there was no way in. The way in was the network he spent 46 years building.</blockquote>
+
+<p><em>This took me a single day. If it saves someone else a year, that's worth a blog post.</em></p>
+
+<div class="cta-box">
+    <a href="../explorer/">Explore the Network</a>
+    <a href="the-ripple-method.html">The Ripple Method</a>
+    <a href="https://github.com/martijnaslander/luhmann-zettelkasten">View on GitHub</a>
+</div>
+
+</article>
+
+<footer>
+    Data: <a href="https://niklas-luhmann-archiv.de">Niklas Luhmann-Archiv</a>, Universit&auml;t Bielefeld (CC-BY-NC-SA 4.0)<br>
+    By Martijn Aslander + Claude &middot; March 2026 &middot; <a href="../">Back to project</a>
+</footer>
+
+<script data-goatcounter="https://luhmann-brain.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
