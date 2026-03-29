@@ -198,11 +198,11 @@ async function init() {
     const edgesData = await fetch('data/vis_edges.json').then(r => r.json());
     progress('Loading statistics...', 40);
     const statsData = await fetch('data/network_stats.json').then(r => r.json());
-    progress('Loading search index (43,222 cards)...', 55);
-    const cardsData = await fetch('data/search_index.json').then(r => r.json()).catch(() => []);
-    progress('Building network layout...', 70);
+    progress('Building network layout...', 55);
 
-    allCards = cardsData;
+    allCards = [];
+    // Lazy load search index after render
+    fetch('data/search_index.json').then(r => r.json()).then(d => { allCards = d; }).catch(() => {});
 
     // Update dashboard
     document.getElementById('stat-cards').textContent = '73,715';
@@ -228,7 +228,7 @@ async function init() {
     await new Promise(r => setTimeout(r, 50)); // allow UI to update
 
     // Run force simulation
-    simulate(150);
+    simulate(80);
 
     progress('Ready.', 100);
     await new Promise(r => setTimeout(r, 300));
