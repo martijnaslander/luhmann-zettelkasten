@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Downloading 73,000 Handwritten Cards &mdash; The Polite Way, Then the Fast Way</title>
+<meta name="description" content="From 2 images/second to 23/second. How a disk-full error led to a better architecture for downloading an entire academic archive.">
+<meta property="og:title" content="Downloading 73,000 Handwritten Cards &mdash; The Polite Way, Then the Fast Way">
+<meta property="og:description" content="From 2 images/second to 23/second. Multi-agent orchestration, legal deep-dive, and why politeness has diminishing returns.">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Georgia, 'Times New Roman', serif; background: #0a0a0f; color: #c8c8c8; line-height: 1.9; }
+a { color: #6cf; text-decoration: none; }
+a:hover { text-decoration: underline; }
+nav { padding: 16px 24px; border-bottom: 1px solid #1a1a2e; font-family: -apple-system, sans-serif; }
+nav a { color: #888; font-size: 14px; }
+article { max-width: 780px; margin: 0 auto; padding: 60px 24px 80px; }
+h1 { font-family: -apple-system, sans-serif; font-size: 40px; font-weight: 700; color: #fff; line-height: 1.25; margin-bottom: 16px; letter-spacing: -1px; }
+.date { color: #666; font-size: 14px; margin-bottom: 40px; display: block; font-family: -apple-system, sans-serif; }
+h2 { font-family: -apple-system, sans-serif; font-size: 24px; color: #fff; margin: 48px 0 16px; font-weight: 600; }
+p { margin-bottom: 20px; font-size: 19px; color: #b8b8b8; }
+code { font-family: 'SF Mono', 'Fira Code', monospace; background: #151520; padding: 2px 6px; border-radius: 3px; font-size: 15px; color: #e0e0e0; }
+pre { background: #0d1117; border: 1px solid #1a2a3a; border-radius: 8px; padding: 20px; margin: 24px 0; overflow-x: auto; font-size: 14px; line-height: 1.6; }
+pre code { background: none; padding: 0; color: #c9d1d9; }
+ul { margin: 16px 0 24px; padding-left: 24px; }
+li { margin-bottom: 8px; font-size: 18px; color: #b8b8b8; }
+li strong { color: #e0e0e0; }
+.stats { background: #111118; border: 1px solid #1a1a2e; border-radius: 8px; padding: 20px; margin: 24px 0; font-family: 'SF Mono', monospace; font-size: 16px; color: #6cf; line-height: 2; }
+blockquote { font-size: 22px; font-style: italic; color: #fff; padding: 24px 28px; margin: 32px 0; border-left: 3px solid #6cf; background: #111118; border-radius: 0 6px 6px 0; line-height: 1.6; }
+table { width: 100%; border-collapse: collapse; margin: 24px 0; font-family: -apple-system, sans-serif; font-size: 15px; }
+th { text-align: left; padding: 10px 12px; border-bottom: 2px solid #2a2a3e; color: #fff; font-weight: 600; }
+td { padding: 10px 12px; border-bottom: 1px solid #1a1a2e; color: #b8b8b8; }
+tr:hover td { background: #111118; }
+.cta-box { background: #111118; border: 1px solid #222; border-radius: 8px; padding: 24px; margin: 40px 0; text-align: center; }
+.cta-box a { display: inline-block; padding: 12px 28px; background: #1a3a5c; color: #6cf; border-radius: 6px; border: 1px solid #2a4a6c; font-weight: 600; font-family: -apple-system, sans-serif; margin: 4px; }
+.cta-box a:hover { text-decoration: none; background: #2a4a6c; }
+.timeline { position: relative; margin: 32px 0; padding-left: 28px; border-left: 2px solid #2a2a3e; }
+.timeline .step { margin-bottom: 28px; position: relative; }
+.timeline .step::before { content: ''; position: absolute; left: -33px; top: 6px; width: 10px; height: 10px; background: #6cf; border-radius: 50%; }
+.timeline .step .time { font-family: 'SF Mono', monospace; font-size: 13px; color: #6cf; display: block; margin-bottom: 4px; }
+.timeline .step .desc { font-size: 17px; color: #b8b8b8; }
+footer { text-align: center; padding: 40px; color: #555; font-size: 13px; font-family: -apple-system, sans-serif; }
+</style>
+</head>
+<body>
+
+<nav><a href="../">&larr; Back to project</a></nav>
+
+<article>
+
+<h1>Downloading 73,000 Handwritten Cards &mdash; The Polite Way, Then the Fast Way</h1>
+<span class="date">March 29, 2026 &middot; Martijn Aslander</span>
+
+<p>Yesterday I <a href="how-i-got-the-archive.html">downloaded all 73,715 metadata records</a> from the Luhmann Archive &mdash; the text, the cross-references, the structure. Nine API calls. About 100 MB. Then I built a database, ran a network analysis, mapped the cross-references, and published the results. All within a couple of hours.</p>
+
+<p>But that was just the metadata. The actual scans &mdash; high-resolution JPEGs of every handwritten card &mdash; are 73,650 separate image files. Roughly 350 KB each. About 25 GB total. That's where things got interesting.</p>
+
+<h2>Attempt 1: The polite sequential download</h2>
+
+<p>The first script was respectful. One image at a time. Half a second delay between requests. Skip anything already downloaded. Resume where you left off.</p>
+
+<pre><code>def download_one(image_id):
+    dest = IMAGES_DIR / f"{image_id}.jpg"
+    if dest.exists():
+        return "skip"
+    url = f"https://images.niklas-luhmann-archiv.de/image/{image_id}?size=2"
+    # download, save, wait 0.5s
+    time.sleep(0.5)</code></pre>
+
+<p>This worked. Slowly. At two images per second, the math was brutal:</p>
+
+<div class="stats">
+73,650 images &divide; 2/sec = 36,825 seconds = <strong>10.2 hours</strong>
+</div>
+
+<p>Around image 3,277, my MacBook's disk filled up. 926 GB drive, 27 GB free, and 25 GB of images still to go. The download crashed.</p>
+
+<h2>The pivot: move it to a machine that doesn't sleep</h2>
+
+<p>This is where it gets interesting. Instead of clearing disk space and restarting, I moved the entire operation to a Mac Mini server that sits in a closet. Always on, 63 GB free, reachable via Tailscale.</p>
+
+<p>The migration was surgical:</p>
+
+<div class="timeline">
+    <div class="step">
+        <span class="time">07:12</span>
+        <span class="desc">Verified Mac Mini has 63 GB free via <code>ssh</code> + <code>df -h</code></span>
+    </div>
+    <div class="step">
+        <span class="time">07:13</span>
+        <span class="desc"><code>rsync</code> the project: data, scripts, 3,277 existing images (1.4 GB)</span>
+    </div>
+    <div class="step">
+        <span class="time">07:14</span>
+        <span class="desc">Start download as <code>nohup</code> background process on the Mini</span>
+    </div>
+    <div class="step">
+        <span class="time">07:15</span>
+        <span class="desc">Verify images are arriving, delete local copy, reclaim disk space</span>
+    </div>
+</div>
+
+<p>The download resumed automatically because the script checks for existing files. No progress was lost.</p>
+
+<h2>Attempt 2: why wait?</h2>
+
+<p>With the download running on the Mini, I watched the progress. Two images per second. Ten hours. On a machine with a gigabit connection that was doing nothing else.</p>
+
+<p>The bottleneck wasn't the server, it wasn't the network, and it wasn't the archive's API. It was the <em>sequential nature of the script</em>. Each image waited for the previous one to finish, then waited another 0.5 seconds out of politeness.</p>
+
+<p>So I rewrote it:</p>
+
+<pre><code>from concurrent.futures import ThreadPoolExecutor, as_completed
+
+WORKERS = 20
+
+with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+    futures = {pool.submit(download_one, img_id): img_id
+               for img_id in todo}
+    for i, future in enumerate(as_completed(futures), 1):
+        result = future.result()
+        # log progress every 500 images</code></pre>
+
+<p>Twenty parallel threads. No artificial delay. Same skip-if-exists logic. The archive's CDN handles concurrent requests just fine &mdash; it's designed to serve images to thousands of simultaneous web visitors.</p>
+
+<div class="stats">
+Before: &nbsp;2 images/sec &mdash; 10 hours<br>
+After: &ensp;23 images/sec &mdash; <strong>50 minutes</strong>
+</div>
+
+<p>A 10x improvement from removing artificial constraints.</p>
+
+<h2>But is this legal?</h2>
+
+<p>Before downloading 73,000 images from an academic archive, it's worth checking whether you're allowed to. I did a deep dive.</p>
+
+<p><strong>The short answer: yes.</strong> The Luhmann Archive is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, as registered with <a href="https://text-plus.org/">Text+</a>, Germany's national research data infrastructure (NFDI). This means:</p>
+
+<ul>
+<li><strong>Free to use, share, and adapt</strong> &mdash; including bulk downloads</li>
+<li><strong>Attribution required</strong> &mdash; credit Niklas Luhmann-Archiv, Universit&auml;t Bielefeld</li>
+<li><strong>ShareAlike</strong> &mdash; derivative works must use the same license</li>
+<li><strong>Commercial use allowed</strong></li>
+</ul>
+
+<p>The technical signals confirm this. Their <code>robots.txt</code> is wide open (<code>Allow: /</code>). The API has no authentication, no rate limiting, no API keys. The images sit on a public CDN.</p>
+
+<h2>The layered rights (for the curious)</h2>
+
+<p>German copyright law creates an interesting stack of protections:</p>
+
+<table>
+<tr><th>Layer</th><th>Law</th><th>Status</th></tr>
+<tr><td>Luhmann's texts</td><td>UrhG, 70 years post mortem</td><td>Protected until 2068</td></tr>
+<tr><td>University's scholarly edition</td><td>&sect;70 UrhG</td><td>25 years protection</td></tr>
+<tr><td>Scan photographs</td><td>&sect;72 UrhG (Lichtbildrecht)</td><td>50 years protection</td></tr>
+<tr><td>CC BY-SA 4.0 license</td><td>Contract law</td><td>Explicit permission from all rights holders</td></tr>
+</table>
+
+<p>The CC license doesn't override copyright &mdash; it <em>is</em> the permission from the rights holders (Luhmann's heirs + the university) to use the material freely. They chose openness. Other researchers on the <a href="https://forum.zettelkasten.de/">Zettelkasten Forum</a> have done the same bulk downloads.</p>
+
+<h2>The final tally</h2>
+
+<div class="stats">
+73,650 images downloaded<br>
+~25 GB total<br>
+~60 errors (503s, retryable)<br>
+Wall time: 52 minutes<br>
+Zero rate limits hit
+</div>
+
+<h2>What I learned</h2>
+
+<p><strong>Politeness has diminishing returns.</strong> A 0.5-second delay per request is considerate when you're hitting someone's hobby server. For a CDN designed to serve thousands of concurrent users, it's just slow. The archive didn't notice the difference between 2 and 23 requests per second &mdash; it serves more than that to normal web traffic.</p>
+
+<p><strong>Move the work to the right machine.</strong> My laptop had limited disk space and needs to sleep. The Mac Mini has plenty of space and never sleeps. The migration took 3 minutes and saved hours of babysitting.</p>
+
+<p><strong>Check the license before you worry.</strong> I spent 20 minutes agonizing over whether bulk downloading was appropriate, when the archive had already answered that question: CC BY-SA 4.0. They <em>want</em> people to use this data.</p>
+
+<p><strong>Sequential is the default, not the optimum.</strong> The first version of any download script is a for-loop. That's fine for prototyping. For 73,000 files, <code>ThreadPoolExecutor</code> with 20 workers is still simple code &mdash; just faster code.</p>
+
+<blockquote>The archive was designed to be accessed one card at a time. But Luhmann never thought one card at a time. His whole system was about parallel connections.</blockquote>
+
+<div class="cta-box">
+    <a href="../explorer/">Explore the Network</a>
+    <a href="how-i-got-the-archive.html">How I Got the Metadata</a>
+    <a href="https://github.com/martijnaslander/luhmann-zettelkasten">View on GitHub</a>
+</div>
+
+</article>
+
+<footer>
+    Data: <a href="https://niklas-luhmann-archiv.de">Niklas Luhmann-Archiv</a>, Universit&auml;t Bielefeld (CC BY-SA 4.0)<br>
+    By Martijn Aslander + Claude &middot; March 2026 &middot; <a href="../">Back to project</a>
+</footer>
+
+<script data-goatcounter="https://luhmann-brain.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
