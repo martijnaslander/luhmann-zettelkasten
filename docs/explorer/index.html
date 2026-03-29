@@ -105,8 +105,8 @@ canvas { display: block; }
     <a href="../" style="color:#888; font-size:13px; text-decoration:none; padding:4px 12px; border:1px solid #333; border-radius:4px; margin-right:12px;">About this project</a>
     <h1>Luhmann's Brain</h1>
     <div class="stat"><div class="num" id="stat-cards">—</div><div class="label">Cards</div></div>
-    <div class="stat"><div class="num" id="stat-refs">—</div><div class="label">Cross-refs</div></div>
-    <div class="stat"><div class="num" id="stat-communities">—</div><div class="label">Clusters</div></div>
+    <div class="stat"><div class="num" id="stat-refs">—</div><div class="label">References</div></div>
+    <div class="stat"><div class="num" id="stat-communities">—</div><div class="label">Fernverweise</div></div>
     <div class="stat"><div class="num" id="stat-years">45</div><div class="label">Years</div></div>
     <div id="search-box">
         <input type="text" id="search-input" placeholder="Search Luhmann's thinking..." />
@@ -205,9 +205,9 @@ async function init() {
     fetch('data/search_index.json').then(r => r.json()).then(d => { allCards = d; }).catch(() => {});
 
     // Update dashboard
-    document.getElementById('stat-cards').textContent = '73,715';
-    document.getElementById('stat-refs').textContent = statsData.summary.total_edges_non_folge.toLocaleString();
-    document.getElementById('stat-communities').textContent = statsData.summary.communities.toLocaleString();
+    document.getElementById('stat-cards').textContent = (statsData.total_cards || 73715).toLocaleString();
+    document.getElementById('stat-refs').textContent = (statsData.total_refs || 59265).toLocaleString();
+    document.getElementById('stat-communities').textContent = (statsData.fernverweise || 21864).toLocaleString();
 
     // Use pre-computed layout positions
     nodes = nodesData.map(n => ({
@@ -334,29 +334,35 @@ function draw() {
     ctx.scale(camera.zoom, camera.zoom);
     ctx.translate(camera.x, camera.y);
 
+    // Edge colors by type
+    const EDGE_COLORS = {
+        'fernverweis': '#4488cc',
+        'cross_zk': '#ff9966',
+        'neighbourhood': '#44aa66',
+        'same_section': '#555577',
+        'unknown': '#444466'
+    };
+
     // Edges
-    ctx.globalAlpha = 0.15;
-    ctx.strokeStyle = '#446';
-    ctx.lineWidth = 0.5 / camera.zoom;
     for (const e of edges) {
         const s = nodeMap[e.source], t = nodeMap[e.target];
         if (!s || !t) continue;
-        // Highlight edges connected to selected node
-        if (selectedNode && (e.source === selectedNode.id || e.target === selectedNode.id)) {
-            ctx.globalAlpha = 0.6;
-            ctx.strokeStyle = e.type === 'cross_zk' ? '#f96' : '#6cf';
-            ctx.lineWidth = 1.5 / camera.zoom;
+        const isHighlight = selectedNode && (e.source === selectedNode.id || e.target === selectedNode.id);
+        if (isHighlight) {
+            ctx.globalAlpha = 0.7;
+            ctx.strokeStyle = EDGE_COLORS[e.type] || '#6cf';
+            ctx.lineWidth = 2 / camera.zoom;
+        } else {
+            ctx.globalAlpha = e.type === 'fernverweis' || e.type === 'cross_zk' ? 0.2 : 0.08;
+            ctx.strokeStyle = EDGE_COLORS[e.type] || '#446';
+            ctx.lineWidth = e.type === 'cross_zk' ? 1 / camera.zoom : 0.5 / camera.zoom;
         }
         ctx.beginPath();
         ctx.moveTo(s.x, s.y);
         ctx.lineTo(t.x, t.y);
         ctx.stroke();
-        if (selectedNode && (e.source === selectedNode.id || e.target === selectedNode.id)) {
-            ctx.globalAlpha = 0.15;
-            ctx.strokeStyle = '#446';
-            ctx.lineWidth = 0.5 / camera.zoom;
-        }
     }
+    ctx.globalAlpha = 1;
 
     // Nodes
     ctx.globalAlpha = 1;
