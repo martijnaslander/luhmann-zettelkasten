@@ -42,6 +42,10 @@ footer { text-align: center; padding: 40px; color: #555; font-size: 13px; font-f
 <h1>How I Got Luhmann's 73,715-Card Archive in a Couple of Minutes</h1>
 <span class="date">March 28, 2026 &middot; Martijn Aslander</span>
 
+<div style="background: #111118; border-left: 3px solid #6cf; padding: 16px 20px; margin-bottom: 32px; border-radius: 0 6px 6px 0; font-size: 15px; color: #999; line-height: 1.7;">
+<strong style="color:#ccc;">Updated March 30, 2026</strong> &mdash; This project was published within hours of the first analysis, following <a href="https://nicolevanderhoeven.com">Nicole van der Hoeven</a>'s philosophy of learning in public: share early, be vulnerable, correct as you go. Early readers &mdash; particularly <strong style="color:#ccc;">Ton Zijlstra</strong> &mdash; provided corrections that significantly improved the work. That's not a flaw in the process. That's the process.
+</div>
+
 <p>Niklas Luhmann's Zettelkasten is legendary. Over 45 years, the German sociologist built a system of roughly 90,000 handwritten note cards that powered more than 50 books and 550 articles. It's the most famous example of networked note-taking in history.</p>
 
 <p>Bielefeld University digitized the entire thing. Every card is scanned. Most are transcribed. They put it online at <a href="https://niklas-luhmann-archiv.de/">niklas-luhmann-archiv.de</a> &mdash; and then made the exact mistake Luhmann would have predicted.</p>
@@ -80,7 +84,7 @@ footer { text-align: center; padding: 40px; color: #555; font-size: 13px; font-f
 <p>Each card comes back as a JSON object with:</p>
 
 <ul>
-<li><strong><code>transcriptionPreview</code></strong> &mdash; the full transcribed text</li>
+<li><strong><code>transcriptionPreview</code></strong> &mdash; a preview of the transcribed text (truncated for longer cards; full transcriptions require individual TEI-XML requests)</li>
 <li><strong><code>luhmann_number</code></strong> &mdash; Luhmann's original numbering system</li>
 <li><strong><code>meta</code></strong> &mdash; card type, position in the physical archive, section</li>
 <li><strong><code>file</code></strong> &mdash; pointer to the original XML and scan images</li>
@@ -101,7 +105,7 @@ TOTAL: 73,715 cards &mdash; 100 MB
 
 <h2>The missing ~16,000</h2>
 
-<p>The archive reports around 90,000 physical cards, but the API returns 73,715. The difference is likely back sides of cards (Zettelr&uuml;ckseite), blank cards, and organizational separators that aren't indexed as individual search results.</p>
+<p>The archive reports around 90,000 physical cards, but the API returns 73,715. The difference is the bibliographic sections (Ausz&uuml;ge 15&ndash;20 of ZK II), keyword registers (Schlagwortregister), and person registers &mdash; six sections of approximately 2,500&ndash;3,700 cards each that are catalogued separately. Sections 18&ndash;20 have not yet been published online. <em>(Corrected thanks to <a href="#" style="color:#6cf">Ton Zijlstra</a>, who pointed to the archive's own documentation.)</em></p>
 
 <h2>What this enables</h2>
 
