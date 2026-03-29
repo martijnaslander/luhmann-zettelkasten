@@ -117,13 +117,15 @@ footer { text-align: center; padding: 40px; color: #555; font-size: 13px; font-f
 
 <hr>
 
-<h2>The fourth insight: three readers are better than one</h2>
+<h2>The fourth insight: the obvious idea didn't work</h2>
 
-<p>Once the pipeline was working, I tried something: instead of reading each card once, read it three times independently and let the results vote. Where all three agree, you can trust it. Where two agree and one differs, take the majority. Where all three disagree, flag it as uncertain.</p>
+<p>Once the pipeline was working, I tried something that seemed like a sure win: instead of reading each card once, read it three times independently and let the results vote. Where all three agree, trust it. Where two agree and one differs, take the majority. The logic was simple: hallucinations are random, so consensus should filter them out.</p>
 
-<p>The logic is simple: hallucinations are random. The same mistake three times in a row is unlikely. Consensus is a signal.</p>
+<p>It didn't work. Across 100 test cards, triple voting scored 17.0% CER versus 16.3% for single reads. Worse, not better. On 66% of cards the triple read was less accurate than a single read. Only 19% improved.</p>
 
-<p>Early results show a consistent improvement in accuracy, and more importantly, something more valuable than a lower error rate: a confidence score per word. The places where all three readings agree are the places you can rely on. The places where they diverge are the places a human should check.</p>
+<p>The likely explanation: when the model misreads a word, it tends to misread it the same way each time &mdash; the errors aren't random, they're systematic. Voting amplifies systematic errors rather than filtering them. The agreement score was 89.9% &mdash; the three readings mostly agree, but they agree on the wrong answer.</p>
+
+<p>This is worth reporting because the instinct to "just read it three times" is strong. I had to test it to let it go. Single reads with confidence scoring based on network context turned out to be more reliable than consensus voting. The context is smarter than the repetition.</p>
 
 <p>I also tested how many parallel workers to run. The sweet spot turned out to be 20 &mdash; beyond that, Google's servers start to slow down rather than speed up. At 20 parallel workers, the full archive runs in roughly 46 hours for a single pass.</p>
 
