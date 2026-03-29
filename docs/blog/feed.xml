@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>Mapping Luhmann's Brain</title>
+    <link>https://martijnaslander.github.io/luhmann-zettelkasten/</link>
+    <description>The first complete network analysis of Niklas Luhmann's 73,715-card Zettelkasten. By Martijn Aslander.</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 29 Mar 2026 00:00:00 +0100</lastBuildDate>
+    <atom:link href="https://martijnaslander.github.io/luhmann-zettelkasten/blog/feed.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+        <title>The Ripple Method — How Context Reads Context</title>
+        <link>https://martijnaslander.github.io/luhmann-zettelkasten/blog/the-ripple-method.html</link>
+        <guid>https://martijnaslander.github.io/luhmann-zettelkasten/blog/the-ripple-method.html</guid>
+        <pubDate>Sat, 28 Mar 2026 23:49:00 +0100</pubDate>
+        <description>When AI can't read 45-year-old German handwriting, the surrounding cards can help. A multi-agent system that lets the network read itself. CER from 163% to 27%.</description>
+    </item>
+
+    <item>
+        <title>The Architecture Behind It — How ThetaOS Maps Onto Luhmann</title>
+        <link>https://martijnaslander.github.io/luhmann-zettelkasten/blog/thetaos-architecture.html</link>
+        <guid>https://martijnaslander.github.io/luhmann-zettelkasten/blog/thetaos-architecture.html</guid>
+        <pubDate>Sat, 28 Mar 2026 23:50:00 +0100</pubDate>
+        <description>A 10-layer synaptic model, myelination scores, and an 8-dimensional diamond layer. Why this architecture works on the most famous knowledge system in history.</description>
+    </item>
+
+    <item>
+        <title>8 Lessons for Anyone Building a Knowledge System</title>
+        <link>https://martijnaslander.github.io/luhmann-zettelkasten/blog/lessons-for-knowledge-systems.html</link>
+        <guid>https://martijnaslander.github.io/luhmann-zettelkasten/blog/lessons-for-knowledge-systems.html</guid>
+        <pubDate>Sat, 28 Mar 2026 23:47:00 +0100</pubDate>
+        <description>After mapping 73,715 cards and 18,289 cross-references, eight lessons emerge that apply to anyone building a personal knowledge system.</description>
+    </item>
+
+    <item>
+        <title>What Happens When You Have All 90,000 Cards</title>
+        <link>https://martijnaslander.github.io/luhmann-zettelkasten/blog/what-happens-next.html</link>
+        <guid>https://martijnaslander.github.io/luhmann-zettelkasten/blog/what-happens-next.html</guid>
+        <pubDate>Sat, 28 Mar 2026 23:43:00 +0100</pubDate>
+        <description>We mapped 58% of Luhmann's Zettelkasten. Here's what becomes possible when we have the rest.</description>
+    </item>
+
+    <item>
+        <title>50 Things Nobody Knew About Luhmann's Zettelkasten</title>
+        <link>https://martijnaslander.github.io/luhmann-zettelkasten/blog/preliminary-findings.html</link>
+        <guid>https://martijnaslander.github.io/luhmann-zettelkasten/blog/preliminary-findings.html</guid>
+        <pubDate>Sat, 28 Mar 2026 23:43:00 +0100</pubDate>
+        <description>The first network analysis of all 73,715 cards reveals surprises about his thinking that 70 years of scholarship missed.</description>
+    </item>
+
+    <item>
+        <title>How I Got 73,715 Cards in a Couple of Minutes</title>
+        <link>https://martijnaslander.github.io/luhmann-zettelkasten/blog/how-i-got-the-archive.html</link>
+        <guid>https://martijnaslander.github.io/luhmann-zettelkasten/blog/how-i-got-the-archive.html</guid>
+        <pubDate>Sat, 28 Mar 2026 23:30:00 +0100</pubDate>
+        <description>The hidden API, the download script (80 lines), and why the archive was always open — nobody took it.</description>
+    </item>
+
+</channel>
+</rss>
