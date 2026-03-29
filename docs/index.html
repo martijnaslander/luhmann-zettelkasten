@@ -25,44 +25,45 @@ body {
 a { color: #6cf; text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-.container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
 
 /* Hero */
 header {
-    padding: 80px 0 60px;
+    padding: 100px 0 70px;
     text-align: center;
     border-bottom: 1px solid #1a1a2e;
 }
 header h1 {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 48px;
+    font-size: 64px;
     font-weight: 700;
     color: #fff;
-    letter-spacing: -1px;
-    margin-bottom: 12px;
+    letter-spacing: -2px;
+    margin-bottom: 20px;
 }
 header .subtitle {
-    font-size: 20px;
+    font-size: 22px;
     color: #888;
-    max-width: 540px;
-    margin: 0 auto 32px;
+    max-width: 720px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
 }
 .hero-stats {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    margin-bottom: 36px;
+    gap: 60px;
+    margin-bottom: 44px;
 }
 .hero-stats .stat .num {
-    font-size: 32px;
+    font-size: 48px;
     font-weight: 700;
     color: #6cf;
     display: block;
 }
 .hero-stats .stat .label {
-    font-size: 11px;
+    font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
     color: #666;
 }
 .cta {
@@ -89,15 +90,15 @@ section {
 }
 section h2 {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 26px;
+    font-size: 32px;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     font-weight: 600;
 }
 section p {
     margin-bottom: 20px;
     color: #b0b0b0;
-    font-size: 19px;
+    font-size: 20px;
     line-height: 1.9;
 }
 
@@ -112,28 +113,29 @@ section p {
     background: #111118;
     border: 1px solid #222;
     border-radius: 8px;
-    padding: 20px;
+    padding: 24px;
     transition: border-color 0.2s;
 }
 .card:hover { border-color: #6cf; }
 .card h3 {
-    font-size: 14px;
+    font-size: 18px;
     color: #fff;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     font-weight: 600;
+    line-height: 1.3;
 }
 .card p {
-    font-size: 13px;
+    font-size: 15px;
     color: #888;
-    margin-bottom: 10px;
-    line-height: 1.5;
+    margin-bottom: 12px;
+    line-height: 1.6;
 }
 .card .tag {
     display: inline-block;
-    padding: 2px 8px;
+    padding: 3px 10px;
     background: #1a1a2e;
     border-radius: 3px;
-    font-size: 10px;
+    font-size: 11px;
     color: #6cf;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -155,10 +157,10 @@ section p {
 }
 .bio-text { flex: 1; }
 .bio-text .name {
-    font-size: 18px;
+    font-size: 22px;
     color: #fff;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 /* Numbers */
@@ -176,13 +178,13 @@ section p {
     border: 1px solid #1a1a2e;
 }
 .numbers .n .val {
-    font-size: 22px;
+    font-size: 28px;
     font-weight: 700;
     color: #6cf;
     display: block;
 }
 .numbers .n .lbl {
-    font-size: 10px;
+    font-size: 12px;
     color: #666;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -210,9 +212,10 @@ footer a { color: #888; }
 
 /* Responsive */
 @media (max-width: 600px) {
-    header h1 { font-size: 28px; }
-    .hero-stats { gap: 20px; }
-    .hero-stats .stat .num { font-size: 24px; }
+    header h1 { font-size: 36px; letter-spacing: -1px; }
+    header .subtitle { font-size: 18px; }
+    .hero-stats { gap: 24px; }
+    .hero-stats .stat .num { font-size: 32px; }
     .cards { grid-template-columns: 1fr; }
     .numbers { grid-template-columns: repeat(2, 1fr); }
     .bio { flex-direction: column; }
